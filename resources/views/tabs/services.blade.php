@@ -15,7 +15,7 @@
             <a href="{{ route('about') }}">About</a> |
             <a href="{{ route('services') }}">Services</a> |
             <a href="{{ route('contact') }}">Contact</a>
-            <a href="{{ route(name: 'auth.login') }}">Login</a>
+            <a href="{{ route(name: 'login') }}">Login</a>
         </nav>
     </header>
     <main>
