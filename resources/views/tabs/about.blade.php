@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>About | Wealthy Debt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 </head>
 
 <body>
@@ -15,6 +15,7 @@
             <a href="{{ route('about') }}">About</a> |
             <a href="{{ route('services') }}">Services</a> |
             <a href="{{ route('contact') }}">Contact</a>
+            <a href="{{ route(name: 'login') }}">Login</a>
         </nav>
     </header>
     <main>
@@ -24,7 +25,8 @@
             <p>We’re on a mission to flip the nation’s balance sheet—one household at a time—by turning liabilities into
                 lasting legacies. What began as a single coaching framework has grown into a full-service
                 financial-education company poised to serve clients in every U.S. time-zone.</p>
-            <a href="{{ route('downloads') }}" class="button primary">[Download the Wealthy Debt™ Quick-Start Q&A Guide]</a>
+            <a href="{{ route('downloads') }}" class="button primary">[Download the Wealthy Debt™ Quick-Start Q&A
+                Guide]</a>
         </section>
 
         <section class="about-section mtp">
@@ -72,7 +74,8 @@
         </section>
 
         <section class="call-to-action">
-            <a href="{{ route('downloads')}}" class="button secondary">[Download the Wealthy Debt™ Quick-Start Q&A Guide]</a>
+            <a href="{{ route('downloads')}}" class="button secondary">[Download the Wealthy Debt™ Quick-Start Q&A
+                Guide]</a>
         </section>
     </main>
     <footer>

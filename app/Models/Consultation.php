@@ -5,20 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lead extends Model
+class Consultation extends Model
 {
     use HasFactory;
+    protected $table = 'consultations'; 
     protected $fillable = [
-        'name', 
+        'name',
         'email',
-        'phone',
-        'source',
-        'utm', 
-        'last_contacted',
-    ];
-
-
-    protected $casts = [
-        'last_contacted' => 'datetime', 
+        'interest', 
     ];
 }
+

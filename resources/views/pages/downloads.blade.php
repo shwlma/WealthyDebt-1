@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downloads</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
         <section>
             <h2>Your Resources</h2>
             <p>Click below to download your guides and templates:</p>
-            <button onclick="downloadFile()">Download Now</button>
+            <button class="btn" onclick="downloadFile()">Download Now</button>
         </section>
     </main>
     <script>

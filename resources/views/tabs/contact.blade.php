@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Contact | Wealthy Debt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 </head>
 
 <body>
@@ -15,6 +15,7 @@
             <a href="{{ route('about') }}">About</a> |
             <a href="{{ route('services') }}">Services</a> |
             <a href="{{ route('contact') }}">Contact</a>
+            <a href="{{ route(name: 'login') }}">Login</a>
         </nav>
     </header>
 
@@ -64,7 +65,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="button primary">Send Message</button>
+                    <button type="submit" class="btn">Send Message</button>
                 </div>
             </form>
 
@@ -85,6 +86,7 @@
                     {{ session('success') }}
                 </div>
             @endif
+            
             <p><strong>Direct Contact:</strong> <a href="mailto:info@wealthydebt.com">info@wealthydebt.com</a></p>
         </section>
     </main>

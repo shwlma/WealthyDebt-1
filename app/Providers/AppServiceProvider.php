@@ -21,8 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // used for testing purposes when using a local server NGROK
-        if(config("app.env") === "local"){
-            URL::forceScheme("https");
-        }
+        // if(config("app.env") === "local"){
+        //     URL::forceScheme("https");
+        // }
     }
 }
