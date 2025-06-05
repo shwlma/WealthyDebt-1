@@ -22,6 +22,16 @@ class User extends Authenticatable
     ];
 
 
+    public function userRole()
+    {
+        return $this->hasOne(UserRole::class, 'user_id');
+    }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->userRole && $this->userRole->role_id == 1;
+    }
+    
     protected function casts(): array
     {
         return [

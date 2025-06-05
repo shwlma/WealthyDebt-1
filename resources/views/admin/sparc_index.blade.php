@@ -1,9 +1,9 @@
 
-@extends('layouts.app')
+@extends('layouts.admin_tab')
 
 @section('content')
 <div class="container">
-    <h2>VIP Day Leads</h2>
+    <h2>SPARC Session Leads</h2>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -12,7 +12,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Name</th><th>Email</th><th>Phone</th><th>Notes</th><th>Actions</th>
+                <th>Name</th><th>Email</th><th>Question</th><th>Notes</th><th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,9 +20,9 @@
                 <tr>
                     <td>{{ $lead->name }}</td>
                     <td>{{ $lead->email }}</td>
-                    <td>{{ $lead->phone }}</td>
+                    <td>{{ $lead->question }}</td>
                     <td>
-                        <form method="POST" action="{{ route('admin.vip.notes', $lead->id) }}">
+                        <form method="POST" action="{{ route('admin.sparc.notes', $lead->id) }}">
                             @csrf
                             <textarea name="notes">{{ $lead->notes ?? '' }}</textarea>
                             <button type="submit">Save</button>

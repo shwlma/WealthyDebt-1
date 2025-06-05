@@ -10,7 +10,7 @@ class AdminSpeakingController extends Controller
     public function index()
     {
         $leads = SpeakingRequest::latest()->paginate(20);
-        return view('admin.speaking.index', compact('leads'));
+        return view('admin.speaking_index', compact('leads'));
     }
 
     public function updateNotes(Request $request, $id)

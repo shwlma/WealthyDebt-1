@@ -1,0 +1,263 @@
+/* === Wealthy Debt - Login Page CSS (Light Theme) === */
+
+/* --- Root Variables (Consistent with other theme files) --- */
+:root {
+    /* Dark Theme Variables (Primarily for reference) */
+    --dark-green-bg: #0A3622;
+    --primary-text-color-on-dark: #F0F0F0;
+    --section-bg-subtle-darker: #082f1e;
+    --heading-color-on-dark: var(--accent-gold);
+    --subtle-text-on-dark: #cccccc;
+
+    /* Light Theme Variables (PRIMARY FOR THIS THEME) */
+    --white: #FFFFFF;
+    --light-bg-subtle: #f8f9fa; /* Very light gray for subtle section differentiation */
+    --light-bg-medium: #e9ecef; /* Light gray for footers or distinct sections */
+    --text-color-on-light: #333333; /* Standard dark text for light BG */
+    --heading-color-on-light: var(--dark-green-bg); /* Dark green headings on light BG */
+    --subtle-text-on-light: #555555; /* Lighter dark text for less emphasis */
+
+    /* Accent Colors */
+    --accent-gold: #D4AF37;
+    --highlight-gold: #FFD700;
+    --cta-gold-bg: #B8860B; /* Darker gold for primary buttons */
+    --cta-gold-text: #FFFFFF;
+
+    /* Fonts */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-headings: 'Playfair Display', serif;
+    --font-body-alt: 'Roboto', sans-serif;
+
+    /* Transitions & Spacing */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-medium: 0.3s;
+    --transition-timing: ease-in-out;
+
+    --container-padding: 20px;
+    --section-padding-vertical: 60px;
+    --section-padding-vertical-small: 40px;
+    --section-margin-bottom: 2.5em;
+}
+
+/* --- General Styles (Inherited/Replicated for consistency) --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body-alt);
+    line-height: 1.7;
+    color: var(--text-color-on-light);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    width: 100%;
+    margin: 0 auto;
+    display: flex; /* Make main a flex container to center its content vertically */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: var(--section-padding-vertical) var(--container-padding); /* Add overall padding */
+}
+
+section {
+    width: 100%; /* Take full width of parent (main) */
+    box-sizing: border-box;
+    padding: 0; /* Specific padding handled by contact-form-section */
+    margin-bottom: 0; /* Remove default margin-bottom from general section */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--heading-color-on-light);
+    line-height: 1.3;
+    margin-bottom: 0.7em;
+}
+
+p {
+    margin-bottom: 1.2em;
+    font-size: 1.05rem;
+    color: var(--text-color-on-light);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--dark-green-bg); /* Dark green for strong text emphasis */
+}
+
+a {
+    color: var(--dark-green-bg);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) var(--transition-timing);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+/* --- Login Form Section (Reusing contact-form-section for styling consistency) --- */
+.contact-form-section { /* Renamed for reusability, but structurally used for login */
+    background-color: var(--light-bg-subtle); /* Use subtle background for the form area */
+    max-width: 500px; /* Constrain the overall section/form width */
+    margin: 0 auto; /* Center the section */
+    padding: 40px; /* Padding inside the section for the form */
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center; /* Center elements within the form block */
+}
+
+.login-title {
+    font-size: 2.5rem; /* Larger title for login page */
+    color: var(--heading-color-on-light);
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.contact-form-section form {
+    padding: 0; /* Remove padding from inherited form style */
+    background-color: transparent; /* No background for the form itself, it's on the section */
+    box-shadow: none; /* No shadow on the form itself */
+    border-radius: 0; /* No border-radius on the form itself */
+    width: 100%; /* Ensure form takes full width of its parent (.contact-form-section) */
+    text-align: left; /* Align form elements to the left */
+}
+
+.form-group {
+    margin-bottom: 1.5em; /* Spacing between form fields */
+}
+
+.form-group label {
+    display: block; /* Make labels appear on their own line */
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading-color-on-light); /* Dark green for labels */
+    margin-bottom: 0.6em;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    color: var(--text-color-on-light);
+    background-color: var(--white);
+    transition: border-color var(--transition-speed-fast) var(--transition-timing),
+                box-shadow var(--transition-speed-fast) var(--transition-timing);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25); /* Subtle gold glow on focus */
+}
+
+/* Login Button (Using a new class but consistent style) */
+.login {
+    display: block; /* Make button take full width of form */
+    width: 100%;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--cta-gold-bg); /* Primary button gold */
+    color: var(--cta-gold-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color var(--transition-speed-medium) var(--transition-timing),
+                color var(--transition-speed-medium) var(--transition-timing),
+                transform var(--transition-speed-fast) var(--transition-timing),
+                box-shadow var(--transition-speed-medium) var(--transition-timing);
+    margin-top: 2em; /* Space above button */
+}
+
+.login:hover,
+.login:focus {
+    background-color: var(--highlight-gold);
+    color: var(--dark-green-bg);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(184, 134, 11, 0.4);
+    text-decoration: none;
+}
+
+
+/* --- Footer (Reused from other theme files) --- */
+footer {
+    text-align: center;
+    padding: 30px var(--container-padding);
+    background-color: var(--light-bg-medium);
+    color: var(--subtle-text-on-light);
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent-gold);
+    margin-top: auto; /* Pushes footer to bottom if content is short */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--dark-green-bg);
+}
+
+footer a:hover {
+    color: var(--accent-gold);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .login-title {
+        font-size: 2rem;
+        margin-bottom: 1em;
+    }
+    .contact-form-section {
+        padding: 30px var(--container-padding);
+        max-width: 400px; /* Slightly narrower on tablets */
+    }
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    .form-group input {
+        font-size: 1rem;
+        padding: 10px 12px;
+    }
+    .login {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-title {
+        font-size: 1.8rem;
+    }
+    .contact-form-section {
+        padding: var(--container-padding); /* Use root variable for consistency */
+        max-width: 100%; /* Take full width on small screens */
+        border-radius: 0; /* Remove border-radius for edge-to-edge look */
+        box-shadow: none; /* Remove shadow on very small screens */
+        margin-top: 0; /* Remove vertical margin */
+        margin-bottom: 0;
+    }
+    main {
+        padding: 0; /* Remove main padding on tiny screens if you want the form to stretch */
+    }
+}

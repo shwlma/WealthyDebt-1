@@ -26,10 +26,15 @@ class LeadController extends Controller
         return redirect('/dashboard')->with('success', 'Lead captured successfully!');
     }
 
-    public function dashboard()
+    public function Admin_dashboard()
     {
         $leads = Lead::latest()->get();
 
-        return view('dashboard', compact('leads'));
+        return view('admin.dashboard', compact('leads'));
     }
+     public function User_dashboard()
+    {
+        return view('user.dashboard');
+    }
+
 }

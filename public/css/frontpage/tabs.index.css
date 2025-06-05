@@ -1,0 +1,510 @@
+/* === Wealthy Debt - Index Page CSS (Light Theme) === */
+
+/* --- Root Variables (Consistent with services_page_css) --- */
+:root {
+    /* Dark Theme Variables (Primarily for reference) */
+    --dark-green-bg: #0A3622;
+    --primary-text-color-on-dark: #F0F0F0;
+    --section-bg-subtle-darker: #082f1e;
+    --heading-color-on-dark: var(--accent-gold);
+    --subtle-text-on-dark: #cccccc;
+
+    /* Light Theme Variables (PRIMARY FOR THIS THEME) */
+    --white: #FFFFFF;
+    --light-bg-subtle: #f8f9fa; /* Very light gray for subtle section differentiation */
+    --light-bg-medium: #e9ecef; /* Light gray for footers or distinct sections */
+    --text-color-on-light: #333333; /* Standard dark text for light BG */
+    --heading-color-on-light: var(--dark-green-bg); /* Dark green headings on light BG */
+    --subtle-text-on-light: #555555; /* Lighter dark text for less emphasis */
+
+    /* Accent Colors */
+    --accent-gold: #D4AF37;
+    --highlight-gold: #FFD700;
+    --cta-gold-bg: #B8860B; /* Darker gold for primary buttons */
+    --cta-gold-text: #FFFFFF;
+
+    /* Fonts */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-headings: 'Playfair Display', serif;
+    --font-body-alt: 'Roboto', sans-serif;
+
+    /* Transitions & Spacing */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-medium: 0.3s;
+    --transition-timing: ease-in-out;
+
+    --container-padding: 20px;
+    --section-padding-vertical: 60px;
+    --section-padding-vertical-small: 40px;
+    --section-margin-bottom: 2.5em;
+}
+
+/* --- General Styles --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body-alt);
+    line-height: 1.7;
+    color: var(--text-color-on-light);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    /* max-width: 900px; */ /* Removed to allow main content area to be full width */
+    width: 100%;
+    margin: 0 auto; /* Keeps it centered if a max-width were to be re-applied, no effect at 100% width */
+}
+
+section {
+    padding: var(--section-padding-vertical) var(--container-padding);
+    margin-bottom: var(--section-margin-bottom);
+    width: 100%; /* Ensure section takes full width of its parent (main) */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+section:last-of-type {
+    margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--heading-color-on-light);
+    line-height: 1.3;
+    margin-bottom: 0.7em;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5em;
+}
+
+h2::after { /* Underline for section titles */
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    opacity: 0.8;
+    margin: 0.3em auto 0;
+    transition: width var(--transition-speed-medium) var(--transition-timing);
+}
+
+h2:hover::after {
+    width: 120px;
+}
+
+p {
+    margin-bottom: 1.2em;
+    font-size: 1.05rem;
+    color: var(--text-color-on-light);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--heading-color-on-light); /* Dark green for strong text emphasis */
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5em;
+}
+
+a {
+    color: var(--dark-green-bg);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) var(--transition-timing);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+.sr-only { /* Screen-reader only class */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- Header Placeholder (Assuming similar styling approach) --- */
+.site-header {
+    background-color: var(--white); /* Header on white */
+    padding: 20px var(--container-padding);
+    border-bottom: 2px solid var(--accent-gold);
+    text-align: center;
+    position: sticky; /* Optional: make header sticky */
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.site-header .logo {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+.site-header nav a {
+    color: var(--heading-color-on-light);
+    margin: 0 15px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+.site-header nav a:hover {
+    color: var(--accent-gold);
+}
+
+
+/* --- Hero Section --- */
+.hero {
+    background-color: var(--light-bg-subtle); /* Light gray background for hero */
+    /* padding handled by general section rule */
+    padding-bottom: calc(var(--section-padding-vertical) + 20px); /* Extra bottom padding for hero */
+    text-align: center;
+    /* margin-bottom handled by general section rule */
+    /* max-width: none; Ensured by main being full width and section being 100% */
+    /* width: 100%; Ensured by general section rule */
+}
+
+.hero h1 {
+    font-size: 3rem; /* Larger hero heading */
+    color: var(--heading-color-on-light);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.hero .lead {
+    font-size: 1.3rem;
+    color: var(--subtle-text-on-light);
+    margin-bottom: 1.5em;
+    max-width: 700px; /* Constrain lead paragraph width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero p:not(.lead):not(.featured-on) { /* Mission statement paragraph */
+    font-size: 1.1rem;
+    color: var(--text-color-on-light);
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+}
+.hero p strong { /* Strong text within hero paragraphs */
+    color: var(--dark-green-bg);
+}
+
+.hero .button.primary {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    padding: 15px 40px; /* Larger primary button for hero */
+    font-size: 1.2rem;
+}
+
+.hero .featured-on {
+    font-size: 0.95rem;
+    color: var(--subtle-text-on-light);
+    font-style: italic;
+    margin-top: 2em;
+}
+
+/* --- Why Us Section --- */
+.why-us {
+    background-color: var(--white); /* Section on white background */
+}
+
+.why-us .checklist {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.why-us .checklist li {
+    font-size: 1.1rem;
+    color: var(--text-color-on-light);
+    margin-bottom: 1.2em;
+    padding-left: 35px;
+    position: relative;
+}
+
+.why-us .checklist li::before {
+    content: '✓'; /* Checkmark or other icon */
+    font-family: 'Arial', sans-serif;
+    color: var(--accent-gold);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 2px; /* Adjust vertical alignment */
+    font-size: 1.3em;
+    transition: transform var(--transition-speed-fast) var(--transition-timing);
+}
+.why-us .checklist li:hover::before {
+    transform: scale(1.1);
+}
+.why-us .checklist li strong {
+    display: block; /* Makes the bold part act as a sub-heading for the list item */
+    margin-bottom: 0.2em;
+    color: var(--dark-green-bg);
+}
+
+/* --- Free Guide Section --- */
+.free-guide {
+    background-color: var(--light-bg-subtle); /* Subtle background for variation */
+}
+
+.free-guide .benefit-list {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    columns: 1; /* Default one column */
+}
+
+.free-guide .benefit-list li {
+    font-size: 1.05rem;
+    color: var(--text-color-on-light);
+    margin-bottom: 1em;
+    padding: 10px 15px 10px 35px; /* Padding for items */
+    position: relative;
+    background-color: var(--white);
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.free-guide .benefit-list li::before {
+    content: '→'; /* Arrow or different icon */
+    font-family: 'Arial', sans-serif;
+    color: var(--accent-gold);
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}
+
+.free-guide .button.secondary {
+    display: block;
+    max-width: 300px;
+    margin: 2em auto 0; /* Center button */
+}
+
+
+/* --- Call to Action Section --- */
+.call-to-action {
+    background-color: var(--dark-green-bg); /* Dark green background for strong CTA */
+    color: var(--primary-text-color-on-dark);
+    text-align: center;
+    /* padding handled by general section rule */
+    border-radius: 12px; /* Rounded corners for this distinct section */
+    /* margin-top handled by general section rule */
+}
+
+.call-to-action h2 { /* This is sr-only, but if it were visible: */
+    color: var(--primary-text-color-on-dark);
+}
+.call-to-action h2::after { /* Adjust underline for dark background if visible */
+    background-color: var(--accent-gold);
+}
+
+.call-to-action p {
+    font-size: 1.2rem;
+    color: var(--primary-text-color-on-dark);
+    margin-bottom: 1.5em;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.call-to-action p strong {
+    color: var(--highlight-gold); /* Highlight strong text on dark bg */
+    font-size: 1.25em; /* Slightly larger for emphasis */
+    display: block;
+    margin-bottom: 0.3em;
+}
+
+.call-to-action .button.call-to-action-button { /* Specific CTA button styling */
+    background-color: var(--cta-gold-bg);
+    color: var(--cta-gold-text); /* White text on gold */
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 2px solid var(--cta-gold-bg); /* Ensure border matches for consistency on hover */
+}
+.call-to-action .button.call-to-action-button:hover,
+.call-to-action .button.call-to-action-button:focus {
+    background-color: var(--highlight-gold);
+    color: var(--dark-green-bg); /* Dark green text on bright gold */
+    border-color: var(--highlight-gold);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+
+/* --- Buttons (General Styles - Reused from services_page_css with slight tweaks if needed) --- */
+.button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color var(--transition-speed-medium) var(--transition-timing),
+                color var(--transition-speed-medium) var(--transition-timing),
+                transform var(--transition-speed-fast) var(--transition-timing),
+                box-shadow var(--transition-speed-medium) var(--transition-timing),
+                border-color var(--transition-speed-medium) var(--transition-timing);
+}
+
+.button.primary {
+    background-color: var(--cta-gold-bg);
+    color: var(--cta-gold-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button.primary:hover,
+.button.primary:focus {
+    background-color: var(--highlight-gold);
+    color: var(--dark-green-bg);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(184, 134, 11, 0.4);
+    text-decoration: none;
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--dark-green-bg);
+    border: 2px solid var(--dark-green-bg);
+    box-shadow: none;
+}
+
+.button.secondary:hover,
+.button.secondary:focus {
+    background-color: var(--dark-green-bg);
+    color: var(--white);
+    border-color: var(--dark-green-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px var(--container-padding);
+    background-color: var(--light-bg-medium);
+    color: var(--subtle-text-on-light);
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent-gold);
+    margin-top: auto; /* Pushes footer to bottom if content is short */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--dark-green-bg);
+}
+
+footer a:hover {
+    color: var(--accent-gold);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    /* section padding already var(--section-padding-vertical-small) var(--container-padding) from general rule */
+    .hero {
+         padding-top: var(--section-padding-vertical-small);
+         padding-bottom: calc(var(--section-padding-vertical-small) + 10px); /* Keep extra hero bottom padding */
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero .lead {
+        font-size: 1.15rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .button {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    .hero .button.primary,
+    .call-to-action .button.call-to-action-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    .free-guide .benefit-list {
+        columns: 1; /* Ensure single column on smaller tablets too */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero .lead {
+        font-size: 1.05rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h2::after {
+        width: 60px;
+    }
+    h2:hover::after {
+        width: 100px;
+    }
+
+    .button,
+    .hero .button.primary,
+    .call-to-action .button.call-to-action-button  {
+        width: 100%; /* Make buttons full width on small screens */
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .call-to-action .button.call-to-action-button {
+        margin-top: 1em;
+    }
+}
+
+/* Two-column layout for benefit list on medium screens and up */
+@media (min-width: 600px) {
+    .free-guide .benefit-list {
+        columns: 2;
+        column-gap: 25px;
+    }
+    .free-guide .benefit-list li {
+        break-inside: avoid-column; /* Prevents items from breaking across columns */
+        margin-bottom: 1.2em; /* Adjust margin for column layout */
+    }
+}

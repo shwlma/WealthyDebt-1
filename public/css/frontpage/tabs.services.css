@@ -1,0 +1,406 @@
+/* === Wealthy Debt - Services Page CSS (Light Theme) === */
+
+/* --- Root Variables (from tabs.sparc.css) --- */
+:root {
+    /* Dark Theme Variables (Primarily for reference or specific dark components if ever needed) */
+    --dark-green-bg: #0A3622;
+    --primary-text-color-on-dark: #F0F0F0;
+    --section-bg-subtle-darker: #082f1e;
+    --heading-color-on-dark: var(--accent-gold); /* Gold text on dark */
+    --subtle-text-on-dark: #cccccc;
+
+    /* Light Theme Variables (NOW PRIMARY FOR THIS THEME) */
+    --white: #FFFFFF;
+    --light-bg-subtle: #f8f9fa; /* Very light gray for subtle section differentiation */
+    --light-bg-medium: #e9ecef; /* Light gray for footers or distinct sections */
+    --text-color-on-light: #333333; /* Standard dark text for light BG */
+    --heading-color-on-light: var(--dark-green-bg); /* Dark green headings on light BG */
+    --subtle-text-on-light: #555555; /* Lighter dark text for less emphasis */
+
+    /* Accent Colors (Remain the same) */
+    --accent-gold: #D4AF37;
+    --highlight-gold: #FFD700;
+    --cta-gold-bg: #B8860B; /* Darker gold for primary buttons */
+    --cta-gold-text: #FFFFFF; /* Text on gold CTA button (can be dark if gold is light) */
+
+    /* Fonts (Remain the same) */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-headings: 'Playfair Display', serif;
+    --font-body-alt: 'Roboto', sans-serif;
+
+    /* Transitions & Spacing (Remain the same) */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-medium: 0.3s;
+    --transition-timing: ease-in-out;
+
+    --container-padding: 20px;
+    --section-padding-vertical: 60px;
+    --section-padding-vertical-small: 40px;
+}
+
+/* --- General Styles --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body-alt);
+    line-height: 1.7;
+    color: var(--text-color-on-light); /* Default text for light theme */
+    background-color: var(--white); /* Main background to white */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    padding: var(--section-padding-vertical) var(--container-padding);
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--heading-color-on-light); /* Dark green headings */
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: 1.2em;
+    font-size: 1.05rem;
+    color: var(--text-color-on-light); /* Standard text color */
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+a {
+    color: var(--dark-green-bg); /* Links are dark green */
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) var(--transition-timing);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-gold); /* Gold on hover for links */
+    text-decoration: underline;
+}
+
+/* --- Header Placeholder --- */
+.site-header {
+    background-color: var(--light-bg-subtle); /* Light gray header background */
+    padding: 20px var(--container-padding);
+    border-bottom: 2px solid var(--accent-gold);
+    text-align: center;
+}
+
+.site-header .logo {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    color: var(--accent-gold); /* Logo can remain gold */
+    text-decoration: none;
+}
+
+.site-header nav a {
+    color: var(--heading-color-on-light); /* Dark green nav links */
+    margin: 0 15px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+.site-header nav a:hover {
+    color: var(--accent-gold); /* Gold hover for nav links */
+}
+
+
+/* --- Page Title --- */
+.page-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 1.5em;
+    padding-bottom: 0.5em;
+    position: relative;
+    font-weight: 700;
+    color: var(--heading-color-on-light); /* Already dark green */
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--accent-gold); /* Gold underline still works */
+    opacity: 0.8;
+    margin: 0.3em auto 0;
+    transition: width var(--transition-speed-medium) var(--transition-timing);
+}
+
+.page-title:hover::after {
+    width: 150px;
+}
+
+/* --- Service Offering Sections --- */
+.service-offering {
+    background-color: var(--white); /* Cards are white */
+    padding: var(--section-padding-vertical-small);
+    margin-bottom: 2.5em;
+    border-radius: 12px;
+    border: 1px solid #dee2e6; /* Light border for cards */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07); /* Softer shadow for light theme */
+    transition: transform var(--transition-speed-medium) var(--transition-timing),
+                box-shadow var(--transition-speed-medium) var(--transition-timing);
+}
+
+.service-offering:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow on hover */
+}
+
+.service-offering h2 {
+    font-size: 2rem;
+    margin-bottom: 0.6em;
+    text-align: left;
+    color: var(--heading-color-on-light); /* Dark green title on white card */
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid var(--accent-gold); /* Gold underline for service titles */
+}
+
+.service-offering h2::after {
+    display: none;
+}
+
+.service-details {
+    font-size: 1rem;
+    color: var(--subtle-text-on-light); /* Lighter dark text */
+    margin-bottom: 1.5em;
+    font-style: italic;
+}
+
+.service-benefits {
+    margin-bottom: 1.8em;
+    padding-left: 20px;
+}
+
+.service-benefits li {
+    font-size: 1rem;
+    color: var(--text-color-on-light); /* Standard text color */
+    margin-bottom: 0.8em;
+    position: relative;
+    padding-left: 25px;
+    transition: color var(--transition-speed-medium) var(--transition-timing);
+}
+
+.service-benefits li:hover {
+    color: var(--dark-green-bg); /* Dark green on hover */
+}
+
+.service-benefits li::before {
+    content: '✓';
+    font-family: 'Arial', sans-serif;
+    color: var(--accent-gold); /* Gold checkmark */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 1.1em;
+    transition: transform var(--transition-speed-fast) var(--transition-timing);
+}
+
+.service-benefits li:hover::before {
+    transform: scale(1.2);
+}
+
+
+/* --- Buttons (Primary and Secondary) --- */
+.button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color var(--transition-speed-medium) var(--transition-timing),
+                color var(--transition-speed-medium) var(--transition-timing),
+                transform var(--transition-speed-fast) var(--transition-timing),
+                box-shadow var(--transition-speed-medium) var(--transition-timing);
+}
+
+.button.primary {
+    background-color: var(--cta-gold-bg); /* Darker gold */
+    color: var(--cta-gold-text); /* White text on gold */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button.primary:hover,
+.button.primary:focus {
+    background-color: var(--highlight-gold); /* Brighter gold */
+    color: var(--dark-green-bg); /* Dark green text on bright gold */
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(184, 134, 11, 0.4); /* Shadow related to gold color */
+    text-decoration: none;
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--dark-green-bg); /* Dark green text */
+    border: 2px solid var(--dark-green-bg); /* Dark green border */
+    box-shadow: none;
+}
+
+.button.secondary:hover,
+.button.secondary:focus {
+    background-color: var(--dark-green-bg); /* Dark green background */
+    color: var(--white); /* White text */
+    border-color: var(--dark-green-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+/* --- Mini-FAQ Section --- */
+.mini-faq {
+    background-color: var(--light-bg-subtle); /* Light gray background */
+    padding: var(--section-padding-vertical-small);
+    margin-top: 3em;
+    border-radius: 12px;
+    border: 1px solid #dee2e6; /* Light border */
+}
+
+.mini-faq h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--heading-color-on-light); /* Dark green FAQ title */
+    margin-bottom: 1em;
+}
+.mini-faq h2::after {
+    background-color: var(--accent-gold); /* Gold underline for FAQ title */
+}
+
+
+.faq-list {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.faq-list li {
+    font-size: 1rem;
+    color: var(--subtle-text-on-light);
+    margin-bottom: 0.8em;
+    padding: 10px 15px;
+    background-color: var(--white); /* FAQ items on white */
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-gold); /* Gold accent line */
+    transition: background-color var(--transition-speed-medium) var(--transition-timing),
+                border-left-color var(--transition-speed-medium) var(--transition-timing);
+}
+
+.faq-list li:hover {
+    background-color: #f1f3f5; /* Slightly darker white on hover */
+    color: var(--text-color-on-light);
+    border-left-color: var(--highlight-gold); /* Brighter gold accent on hover */
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px var(--container-padding);
+    background-color: var(--light-bg-medium); /* Medium light gray footer */
+    color: var(--subtle-text-on-light);
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent-gold); /* Gold accent top border */
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--dark-green-bg); /* Dark green links in footer */
+}
+
+footer a:hover {
+    color: var(--accent-gold); /* Gold hover for footer links */
+}
+
+/* --- Responsive Adjustments (Mostly remain the same, check contrasts if needed) --- */
+@media (max-width: 768px) {
+    main {
+        padding: var(--section-padding-vertical-small) var(--container-padding);
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .service-offering h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-details,
+    .service-benefits li,
+    .faq-list li {
+        font-size: 0.95rem;
+    }
+
+    .button {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.9rem;
+    }
+    .page-title::after {
+        width: 80px;
+    }
+    .page-title:hover::after {
+        width: 120px;
+    }
+
+    .service-offering {
+        /* padding: calc(var(--section-padding-vertical-small) * 0.75); CSS calc needs to be used correctly for multiplication */
+        padding-top: calc(var(--section-padding-vertical-small) * 0.75);
+        padding-bottom: calc(var(--section-padding-vertical-small) * 0.75);
+        padding-left: var(--container-padding); /* Keep horizontal padding consistent or adjust as needed */
+        padding-right: var(--container-padding);
+        margin-bottom: 2em;
+    }
+
+    .service-offering h2 {
+        font-size: 1.6rem;
+    }
+
+    .service-benefits {
+        padding-left: 10px;
+    }
+    .service-benefits li {
+        padding-left: 20px;
+    }
+
+    .button {
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+    .service-offering a.button:last-of-type {
+        margin-bottom: 0;
+    }
+}
+

@@ -3,30 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LeadController;
-use App\Http\Controllers\LoginController;
 
-Route::post('/login2', [LoginController::class, 'login'])->name('enter');
-Route::group(['prefix' => ''], function () {
-    Route::get('/', fn() => view('index'))->name('home');
-    Route::get('/about', fn() => view('tabs.about'))->name('about');
-    Route::get('/services', fn() => view('tabs.services'))->name('services');
-    Route::get('/contact', fn() => view('tabs.contact'))->name('contact');
-    Route::get('/login', fn() => view('auth.login'))->name('login');  
-});
+require __DIR__.'/admin_consult_routes.php';
+require __DIR__.'/admin_sparc_routes.php';
+require __DIR__.'/admin_groupvip_routes.php';
+require __DIR__.'/admin_speaking_routes.php';
+require __DIR__.'/admin_vip_routes.php';
+require __DIR__.'/authentication_routes.php';
+require __DIR__.'/frontpage_routes.php';
 
-Route::group(['prefix' => ''], function () {
-    Route::get('/sparc', fn() => view('pages.sparc'))->name('sparc');
-    Route::get('/downloads', fn() => view('pages.downloads'))->name('downloads');
-});
 
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
-Route::get('/dashboard', [LeadController::class, 'dashboard'])->name('leads.dashboard');
 
 // Temporary placeholder route
 Route::get('/placeholder/{context}', function ($context) {
     return view('temp_placeholder', ['context' => ucfirst($context)]);
 })->name('temp');
 
-
-// Route::post('/lead-capture', [LeadController::class, 'store']);
-// Route::get('/dashboard', [LeadController::class, 'dashboard']);

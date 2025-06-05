@@ -1,0 +1,519 @@
+:root {
+    --primary-green: #006400;
+    /* Dark Green for CTA */
+    --primary-green-deep: #004d00;
+    /* Even darker green for gradients/hovers */
+    --accent-gold: #DAA520;
+    /* Goldenrod for accents */
+    --accent-gold-darker: #B8860B;
+    /* Darker gold for hovers */
+    --light-gold-bg: #FFF8DC;
+    /* Cornsilk - very light gold for BG */
+    --white: #FFFFFF;
+    --text-dark: #333333;
+    --text-light: #f8f9fa;
+    /* Used for text on dark backgrounds */
+    --text-grey: #555555;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    /* Define common transition properties */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-medium: 0.3s;
+    --transition-speed-slow: 0.5s;
+    --transition-timing: ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: var(--white);
+    /* Default white background */
+    transition: background-color var(--transition-speed-slow) var(--transition-timing);
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- Header --- */
+header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-deep) 100%);
+    /* Green gradient */
+    color: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-speed-fast) var(--transition-timing);
+}
+
+.header-content {
+    /* Hide the logo and H1 as per request "only nav in the header" */
+    display: none;
+}
+
+/* Updated logo styling to target .hero-logo class */
+.hero-logo {
+    max-width: 150px; /* Further adjusted max-width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures margin auto works for centering */
+    margin: 0 auto 20px auto; /* Center and add space below logo */
+    border-radius: 50%; /* Optional: if your logo is circular */
+    border: 2px solid var(--accent-gold);
+    transition: transform var(--transition-speed-fast) var(--transition-timing);
+}
+
+.hero-logo:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+/* --- Session Sections --- */
+.session-section {
+    padding: 60px 0;
+    transition: background-color var(--transition-speed-slow) var(--transition-timing), opacity var(--transition-speed-slow) var(--transition-timing);
+}
+
+.session-section:nth-child(odd) {
+    /* First section gets light gold */
+    background-color: var(--light-gold-bg);
+}
+
+.session-section:nth-child(even) {
+    /* Second section gets white */
+    background-color: var(--white);
+    border-top: 5px solid var(--primary-green);
+    /* Green accent */
+}
+
+.session-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.session-intro h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+.session-section.gold-bg .session-intro h2 {
+    /* Slightly different for gold bg */
+    color: #8B4513;
+    /* SaddleBrown - a darker gold/brown */
+}
+
+.price-tag {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-top: 5px;
+}
+
+.duration {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: var(--text-grey);
+}
+
+.session-section h3 {
+    /* Headline */
+    font-family: var(--font-heading);
+    font-size: 2em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subheadline {
+    font-size: 1.2em;
+    color: var(--text-grey);
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.content-block {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Slight transparency if on colored bg */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform var(--transition-speed-fast) ease-out, box-shadow var(--transition-speed-fast) ease-out;
+}
+
+.session-section.gold-bg .content-block {
+    background-color: rgba(255, 255, 255, 0.7);
+    /* More opaque on gold bg */
+}
+
+.content-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.content-block h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--primary-green);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.content-block p,
+.content-block ul {
+    margin-bottom: 15px;
+    color: var(--text-grey);
+}
+
+.content-block ul {
+    list-style-type: none;
+    /* Remove default bullets */
+    padding-left: 0;
+}
+
+.content-block ul li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.content-block ul li::before {
+    content: "✓";
+    /* Checkmark */
+    color: var(--accent-gold);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform var(--transition-speed-fast) ease;
+}
+
+.content-block ul li:hover::before {
+    transform: scale(1.3);
+}
+
+.content-block ul ul {
+    /* Nested list */
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.content-block ul ul li::before {
+    content: "›";
+    /* Arrow for sub-items */
+    color: var(--primary-green);
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+    margin: 40px auto;
+    width: 80%;
+}
+
+.testimonial {
+    font-style: italic;
+    color: var(--text-grey);
+    padding: 15px 20px;
+    border-left: 4px solid var(--accent-gold);
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+}
+
+.testimonial::before {
+    content: '“';
+    font-size: 3em;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+}
+
+/* --- CTA Area & Buttons --- */
+.cta-area {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.session-section.gold-bg .cta-area {
+    /* On gold bg, make CTA area pop more */
+    background-color: var(--white);
+}
+
+.emphasis {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--primary-green);
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    /* Pill shape */
+    margin: 20px 5px 10px;
+    transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease, transform var(--transition-speed-fast) ease, box-shadow var(--transition-speed-fast) ease;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-cta {
+    /* Green button */
+    background-color: var(--primary-green);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 100, 0, 0.3);
+}
+
+.primary-cta:hover {
+    background-color: var(--primary-green-deep);
+    /* Darker green */
+    color: var(--white);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 100, 0, 0.4);
+}
+
+.gold-cta {
+    /* Gold button */
+    background-color: var(--accent-gold);
+    color: var(--text-dark);
+    box-shadow: 0 4一層 10px rgba(218, 165, 32, 0.3);
+}
+
+.gold-cta:hover {
+    background-color: var(--accent-gold-darker);
+    /* Darker gold */
+    color: var(--white);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(218, 165, 32, 0.4);
+}
+
+.stripe-info {
+    font-size: 0.9em;
+    color: var(--text-grey);
+    margin-top: 5px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+/* --- Navigation Bar (Fixed for your HTML structure) --- */
+.main-nav {
+    text-align: center;
+    padding-bottom: 20px;
+    /* Space between nav and content below it */
+    /* Removed the border-bottom here as the header itself provides the separation */
+}
+
+.main-nav .nav-links {
+    display: inline-block;
+    /* Allows the set of links to be centered */
+}
+
+.main-nav .nav-links a {
+    color: var(--white);
+    /* Text color for nav links (on the green header background) */
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 15px;
+    transition: color var(--transition-speed-medium) var(--transition-timing),
+        border-bottom-color var(--transition-speed-medium) var(--transition-timing);
+    position: relative;
+    padding-bottom: 5px;
+    /* For the underline effect */
+    display: inline-block;
+    /* Essential for proper spacing and | alignment */
+}
+
+.main-nav .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-gold);
+    /* Gold underline */
+    transition: width var(--transition-speed-medium) var(--transition-timing);
+}
+
+.main-nav .nav-links a:hover::after,
+.main-nav .nav-links a:focus::after {
+    width: 100%;
+}
+
+.main-nav .nav-links a:hover,
+.main-nav .nav-links a:focus {
+    color: var(--accent-gold);
+    /* Gold on hover/focus for better contrast on green header */
+}
+
+/* Specific style for the login link (now a regular text link) */
+.main-nav .login-link {
+    color: var(--accent-gold);
+    /* Gold by default for login link */
+    text-decoration: none;
+    border: none;
+    /* Removed the border */
+    padding: 0;
+    /* Removed padding */
+    border-radius: 0;
+    /* Removed border-radius */
+    transition: color var(--transition-speed-fast) var(--transition-timing);
+}
+
+.main-nav .login-link:hover {
+    background-color: transparent;
+    /* No background on hover */
+    color: var(--white);
+    /* White on hover for login link */
+    text-decoration: underline;
+    /* Optional: Add underline on hover */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    /* Adjusted logo height for smaller screens */
+    .hero-logo {
+        max-width: 120px; /* Reduced max-width for tablets */
+        margin-bottom: 15px;
+    }
+
+    .session-intro h2 {
+        font-size: 2em;
+    }
+
+    .session-section h3 {
+        font-size: 1.6em;
+    }
+
+    .subheadline {
+        font-size: 1.1em;
+    }
+
+    .content-block h4 {
+        font-size: 1.3em;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+        width: 90%;
+        /* Make buttons full-width on small screens */
+        max-width: 300px;
+    }
+
+    /* Responsive Navigation Adjustments */
+    .main-nav {
+        padding-bottom: 15px;
+    }
+
+    .main-nav .nav-links a {
+        font-size: 1rem;
+        margin: 0 10px;
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    /* Further adjusted logo height for very small screens */
+    .hero-logo {
+        max-width: 90px; /* Further reduced max-width for mobile */
+        margin-bottom: 10px;
+    }
+
+    .session-intro h2 {
+        font-size: 1.8em;
+    }
+
+    .session-section h3 {
+        font-size: 1.4em;
+    }
+
+    .content-block {
+        padding: 15px;
+    }
+
+    /* Responsive Navigation Adjustments for very small screens */
+    .main-nav .nav-links a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+    }
+
+    /* Stack links vertically on very small screens for better readability */
+    .main-nav .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav .nav-links a {
+        margin: 5px 0;
+        /* More vertical space when stacked */
+        padding-bottom: 0;
+        /* Remove underline padding if stacking */
+    }
+
+    /* Hide the underline effect when stacked */
+    .main-nav .nav-links a::after {
+        content: none;
+    }
+}

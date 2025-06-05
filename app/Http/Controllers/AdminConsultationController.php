@@ -10,7 +10,7 @@ class AdminConsultationController extends Controller
     public function index()
     {
         $leads = Consultation::latest()->paginate(20);
-        return view('admin.consultation.index', compact('leads'));
+        return view('admin.consultation_index', compact('leads'));
     }
 
     public function updateNotes(Request $request, $id)

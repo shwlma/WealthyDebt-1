@@ -5,20 +5,11 @@
     <meta charset="UTF-8">
     <title>Contact | Wealthy Debt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontpage/tabs.contact.css') }}">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="{{ route('home') }}">Home</a> |
-            <a href="{{ route('about') }}">About</a> |
-            <a href="{{ route('services') }}">Services</a> |
-            <a href="{{ route('contact') }}">Contact</a>
-            <a href="{{ route(name: 'login') }}">Login</a>
-        </nav>
-    </header>
-
+    @include('layouts.header')
     <main>
         <h1 class="page-title">Let's Flip Your Balance Sheet</h1>
 
@@ -86,7 +77,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            
+
             <p><strong>Direct Contact:</strong> <a href="mailto:info@wealthydebt.com">info@wealthydebt.com</a></p>
         </section>
     </main>

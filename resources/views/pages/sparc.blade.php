@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPARC</title>
-    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/front.tabs.css') }}">
 </head>
 <body>
     <header>
@@ -15,6 +15,7 @@
             <a href="{{ route('about') }}">About</a> |
             <a href="{{ route('services') }}">Services</a> |
             <a href="{{ route('contact') }}">Contact</a>
+            <a href="{{ route(name: 'login') }}">Login</a>
         </nav>
     </header>
     <main>

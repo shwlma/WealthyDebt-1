@@ -5,19 +5,11 @@
     <meta charset="UTF-8">
     <title>About | Wealthy Debt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontpage/tabs.about.css') }}">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="{{ route('home') }}">Home</a> |
-            <a href="{{ route('about') }}">About</a> |
-            <a href="{{ route('services') }}">Services</a> |
-            <a href="{{ route('contact') }}">Contact</a>
-            <a href="{{ route(name: 'login') }}">Login</a>
-        </nav>
-    </header>
+    @include('layouts.header')
     <main>
         <h1 class="page-title">FRED Financial Services & the Wealthy Debt™ Program</h1>
 
@@ -37,10 +29,10 @@
         <section class="about-section impact">
             <h2>How We Deliver Impact</h2>
             <ul class="benefit-list">
-                <li><strong>Education at Scale</strong> – 24/7 access through master courses, shows, and guides</li>
-                <li><strong>Personalized Strategy</strong> – Choose SPARC, VIP Day, or Group Coaching</li>
-                <li><strong>Asset-First Mindset</strong> – Redirect payments into appreciating assets</li>
-                <li><strong>Community & Accountability</strong> – Client portals, check-ins, partner network</li>
+                <li><strong>Education at Scale</strong> 24/7 access through master courses, shows, and guides</li>
+                <li><strong>Personalized Strategy</strong> Choose SPARC, VIP Day, or Group Coaching</li>
+                <li><strong>Asset-First Mindset</strong> Redirect payments into appreciating assets</li>
+                <li><strong>Community & Accountability</strong> Client portals, check-ins, partner network</li>
             </ul>
         </section>
 

@@ -5,23 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Wealthy Debt</title>
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontpage/login.css') }}">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="{{ route('home') }}">Home</a> |
-            <a href="{{ route('about') }}">About</a> |
-            <a href="{{ route('services') }}">Services</a> |
-            <a href="{{ route('contact') }}">Contact</a>
-        </nav>
-    </header>
-
+     @include('layouts.header')
     <main>
-        <section class="contact-form-section">
+        <section class="contact-form-section"> 
             <h2 class="login-title">Welcome Back</h2>
-            <form action="{{ route('enter') }}" method="POST" id="loginForm">
+            <form action="{{ route('AdminLogin') }}" method="POST" id="loginForm">
                 @csrf
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -33,7 +25,7 @@
                     <input type="password" id="password" name="password" required>
                 </div>
 
-                <button type="submit" class="login-btn">Sign In</button>
+                <button type="submit" class="login">Sign In</button>
             </form>
         </section>
     </main>

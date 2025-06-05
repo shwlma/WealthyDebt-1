@@ -10,7 +10,7 @@ class AdminGroupVipController extends Controller
     public function index()
     {
         $leads = GroupVipLead::latest()->paginate(20);
-        return view('admin.groupvip.index', compact('leads'));
+        return view('admin.groupvip_index', compact('leads'));
     }
 
     public function updateNotes(Request $request, $id)

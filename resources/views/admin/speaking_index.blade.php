@@ -1,9 +1,8 @@
-
-@extends('layouts.app')
+@extends('layouts.admin_tab')
 
 @section('content')
 <div class="container">
-    <h2>Group VIP Session Leads</h2>
+    <h2>Speaking Engagement Requests</h2>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -12,16 +11,19 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Name</th><th>Email</th><th>Notes</th><th>Actions</th>
+                <th>Name</th><th>Org</th><th>Email</th><th>Event</th><th>Topic</th><th>Notes</th><th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($leads as $lead)
                 <tr>
                     <td>{{ $lead->name }}</td>
+                    <td>{{ $lead->organization }}</td>
                     <td>{{ $lead->email }}</td>
+                    <td>{{ $lead->event_name }}</td>
+                    <td>{{ $lead->topic }}</td>
                     <td>
-                        <form method="POST" action="{{ route('admin.groupvip.notes', $lead->id) }}">
+                        <form method="POST" action="{{ route('admin.speaking.notes', $lead->id) }}">
                             @csrf
                             <textarea name="notes">{{ $lead->notes ?? '' }}</textarea>
                             <button type="submit">Save</button>

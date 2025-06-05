@@ -1,0 +1,385 @@
+/* === Wealthy Debt - Contact Page CSS (Light Theme) === */
+
+/* --- Root Variables (Consistent with other theme files) --- */
+:root {
+    /* Dark Theme Variables (Primarily for reference) */
+    --dark-green-bg: #0A3622;
+    --primary-text-color-on-dark: #F0F0F0;
+    --section-bg-subtle-darker: #082f1e;
+    --heading-color-on-dark: var(--accent-gold);
+    --subtle-text-on-dark: #cccccc;
+
+    /* Light Theme Variables (PRIMARY FOR THIS THEME) */
+    --white: #FFFFFF;
+    --light-bg-subtle: #f8f9fa; /* Very light gray for subtle section differentiation */
+    --light-bg-medium: #e9ecef; /* Light gray for footers or distinct sections */
+    --text-color-on-light: #333333; /* Standard dark text for light BG */
+    --heading-color-on-light: var(--dark-green-bg); /* Dark green headings on light BG */
+    --subtle-text-on-light: #555555; /* Lighter dark text for less emphasis */
+
+    /* Accent Colors */
+    --accent-gold: #D4AF37;
+    --highlight-gold: #FFD700;
+    --cta-gold-bg: #B8860B; /* Darker gold for primary buttons */
+    --cta-gold-text: #FFFFFF;
+
+    /* Fonts */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-headings: 'Playfair Display', serif;
+    --font-body-alt: 'Roboto', sans-serif;
+
+    /* Transitions & Spacing */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-medium: 0.3s;
+    --transition-timing: ease-in-out;
+
+    --container-padding: 20px;
+    --section-padding-vertical: 60px;
+    --section-padding-vertical-small: 40px;
+    --section-margin-bottom: 2.5em;
+}
+
+/* --- General Styles (Inherited/Replicated for consistency) --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body-alt);
+    line-height: 1.7;
+    color: var(--text-color-on-light);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    width: 100%;
+    margin: 0 auto;
+}
+
+section {
+    padding: var(--section-padding-vertical) var(--container-padding);
+    margin-bottom: var(--section-margin-bottom);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section:last-of-type {
+    margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--heading-color-on-light);
+    line-height: 1.3;
+    margin-bottom: 0.7em;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5em;
+}
+
+h2::after { /* Underline for section titles */
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    opacity: 0.8;
+    margin: 0.3em auto 0;
+    transition: width var(--transition-speed-medium) var(--transition-timing);
+}
+
+h2:hover::after {
+    width: 120px;
+}
+
+p {
+    margin-bottom: 1.2em;
+    font-size: 1.05rem;
+    color: var(--text-color-on-light);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--dark-green-bg); /* Dark green for strong text emphasis */
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5em;
+}
+
+a {
+    color: var(--dark-green-bg);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) var(--transition-timing);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+/* --- Page-specific Title --- */
+.page-title {
+    font-family: var(--font-headings);
+    font-size: 3rem;
+    color: var(--heading-color-on-light);
+    text-align: center;
+    padding: 40px var(--container-padding) 20px;
+    background-color: var(--light-bg-subtle);
+    margin-bottom: var(--section-margin-bottom);
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+/* --- Contact Intro Section --- */
+.contact-intro {
+    background-color: var(--white);
+    padding-top: var(--section-padding-vertical-small); /* Adjust padding for intro */
+    text-align: center;
+}
+
+.contact-intro h4 {
+    font-size: 1.3rem;
+    color: var(--subtle-text-on-light);
+    max-width: 800px;
+    margin: 0 auto 2em; /* Center the h4 and add bottom margin */
+    line-height: 1.6;
+    font-weight: 400; /* Lighter weight for introductory text */
+}
+
+/* --- Contact Form Section --- */
+.contact-form-section {
+    background-color: var(--light-bg-subtle);
+    padding-top: var(--section-padding-vertical-small);
+    padding-bottom: var(--section-padding-vertical); /* More padding for the form */
+    text-align: center; /* Center the form block itself */
+}
+
+.contact-form-section form {
+    max-width: 700px; /* Constrain form width for better readability */
+    margin: 0 auto; /* Center the form */
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: left; /* Align form elements to the left within the form */
+}
+
+.form-group {
+    margin-bottom: 1.5em; /* Spacing between form fields */
+}
+
+.form-group label {
+    display: block; /* Make labels appear on their own line */
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading-color-on-light); /* Dark green for labels */
+    margin-bottom: 0.6em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    color: var(--text-color-on-light);
+    background-color: var(--white);
+    transition: border-color var(--transition-speed-fast) var(--transition-timing),
+                box-shadow var(--transition-speed-fast) var(--transition-timing);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25); /* Subtle gold glow on focus */
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Submit Button */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--cta-gold-bg); /* Use primary button gold */
+    color: var(--cta-gold-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color var(--transition-speed-medium) var(--transition-timing),
+                color var(--transition-speed-medium) var(--transition-timing),
+                transform var(--transition-speed-fast) var(--transition-timing),
+                box-shadow var(--transition-speed-medium) var(--transition-timing);
+    width: auto; /* Default for larger screens */
+    margin-top: 1em; /* Space above button */
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--highlight-gold);
+    color: var(--dark-green-bg);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(184, 134, 11, 0.4);
+    text-decoration: none;
+}
+
+/* Alert Messages (Validation Errors & Success) */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.alert-error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+}
+
+.alert ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.alert ul li {
+    margin-bottom: 0.5em;
+}
+
+.alert ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Direct Contact Email */
+.contact-form-section p strong {
+    font-size: 1.1em; /* Slightly larger for emphasis */
+    color: var(--heading-color-on-light);
+}
+
+.contact-form-section p a {
+    font-weight: 500;
+}
+
+
+/* --- Footer (Reused from other theme files) --- */
+footer {
+    text-align: center;
+    padding: 30px var(--container-padding);
+    background-color: var(--light-bg-medium);
+    color: var(--subtle-text-on-light);
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent-gold);
+    margin-top: auto; /* Pushes footer to bottom if content is short */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--dark-green-bg);
+}
+
+footer a:hover {
+    color: var(--accent-gold);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.5rem;
+        padding-top: 30px;
+    }
+    .contact-intro h4 {
+        font-size: 1.15rem;
+        margin-bottom: 1.5em;
+    }
+    .contact-form-section form {
+        padding: 20px;
+    }
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 1rem;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2rem;
+        padding-top: 20px;
+        padding-bottom: 15px;
+    }
+    .contact-intro h4 {
+        font-size: 1.05rem;
+        padding-left: var(--container-padding);
+        padding-right: var(--container-padding);
+    }
+    .contact-form-section form {
+        border-radius: 0; /* Remove border-radius on very small screens for edge-to-edge look */
+        padding: var(--container-padding);
+        box-shadow: none; /* Remove shadow on very small screens */
+    }
+    .btn {
+        width: 100%; /* Make button full width on small screens */
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .alert {
+        margin-left: var(--container-padding);
+        margin-right: var(--container-padding);
+        border-radius: 0;
+    }
+}

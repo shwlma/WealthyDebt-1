@@ -10,7 +10,7 @@ class AdminSparcController extends Controller
     public function index()
     {
         $leads = SparcLead::latest()->paginate(20);
-        return view('admin.sparc.index', compact('leads'));
+        return view('admin.sparc_index', compact('leads'));
     }
 
     public function updateNotes(Request $request, $id)
