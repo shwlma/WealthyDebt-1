@@ -88,10 +88,9 @@ class LeadController extends Controller
         $lead->notes_tags = $request->input('notes_tags');
         $lead->save();
 
-        // Return JSON for AJAX or redirect back
-        if ($request->wantsJson()) {
-            return response()->json(['message' => 'Note updated successfully.']);
-        }
+        // if ($request->wantsJson()) {
+        //     return response()->json(['message' => 'Note updated successfully.']);
+        // }
 
         return redirect()->back()->with('success', 'Note updated successfully!');
     }

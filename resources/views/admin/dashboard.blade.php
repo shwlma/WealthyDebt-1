@@ -85,7 +85,7 @@
                         <td>${escapeHtml(lead.utm)}</td>
                         <td>${escapeHtml(lastContacted)}</td>
                         <td>
-                            <form method="POST" action="/admin/leads/${lead.id}/note" class="notes-form">
+                            <form method="POST" action="/admin/dashboard/${lead.id}/note" class="notes-form">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <textarea name="notes_tags" rows="2" style="width: 100%;">${escapeHtml(lead.notes_tags || '')}</textarea>
                                 <button type="submit">Save</button>
