@@ -5,7 +5,7 @@
     /* Original green, now used for accents/buttons on white */
     --primary-green-darker: #2E7D32;
     /* Darker version of original green */
-    --accent-gold: #D4AF37;
+    --accent-gold: #d43737;
     --accent-gold-darker: #B89B4C;
     --bg-content-on-green: #FFFFFF;
     --text-on-green: #FFFFFF;
@@ -46,32 +46,10 @@ body {
     opacity: 0;
     animation: fadeInPage var(--transition-duration-slow) var(--transition-timing-function) forwards;
     animation-delay: 0.1s;
-    padding-top: var(--gold-edge-height);
-    padding-bottom: var(--gold-edge-height);
     position: relative;
 }
 
 /* GOLD EDGES */
-body::before,
-body::after {
-    content: '';
-    position: fixed;
-    left: 0;
-    width: 100%;
-    height: var(--gold-edge-height);
-    background-color: var(--accent-gold);
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-body::before {
-    top: 0;
-}
-
-body::after {
-    bottom: 0;
-}
-
 
 @keyframes fadeInPage {
     to {

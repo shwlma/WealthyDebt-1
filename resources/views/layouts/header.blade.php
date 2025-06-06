@@ -8,7 +8,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             /* Subtle shadow for depth */
             color: white;
-            /* Default text color for the header */
+            border-bottom: 4px solid #ffd700;
+
         }
 
         /* Navigation container styling */
@@ -154,7 +155,7 @@
     <div>
         <nav>
             <a href="#" class="brand-name">
-                <img src="{{ asset('images/logo.png') }}" alt="Wealthy Debt Logo" class="logo"
+                <img src="{{ asset('images/logo-02.png') }}" alt="Wealthy Debt Logo" class="logo"
                     style="height: 50px; width: 50px; vertical-align: middle;">
                 Wealthy Debt™
             </a>

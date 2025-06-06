@@ -49,24 +49,6 @@ body {
     padding: 20px 0;
 }
 
-/* --- Header --- */
-header {
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-deep) 100%);
-    /* Green gradient */
-    color: var(--white);
-    padding: 20px 0;
-    box-shadow: 0 2px 10px var(--shadow-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color var(--transition-speed-fast) var(--transition-timing);
-}
-
-.header-content {
-    /* Hide the logo and H1 as per request "only nav in the header" */
-    display: none;
-}
-
 /* Updated logo styling to target .hero-logo class */
 .hero-logo {
     max-width: 150px; /* Further adjusted max-width for the logo */

@@ -13,29 +13,20 @@
 </head>
 
 <body>
+    @include('layouts.header')
     <header header class="hero">
-        <nav class="main-nav">
-            <nav class="main-nav">
-                <div class="nav-links">
-                    <a href="{{ route('home') }}">Home</a> |
-                    <a href="{{ route('about') }}">About</a> |
-                    <a href="{{ route('services') }}">Services</a> |
-                    <a href="{{ route('contact') }}">Contact</a> |
-                    <a href="{{ route('login') }}" class="login-link">Login</a>
-                </div>
-            </nav>
-            <div class="container">
-                <div class="logo-container animate-fade-in" style="transition-delay: 0.1s;"> <!-- Added animation -->
-                    <img src="{{ asset('images/logo.png') }}" alt="F.R.E.D. Logo - D'Andrea Felipa" class="hero-logo">
-                </div>
-                <span class="vip-day-badge animate-fade-in" style="transition-delay: 0.2s;">VIP Day</span>
-                <!-- Added animation -->
-                <h1 class="animate-slide-up" style="transition-delay: 0.3s;">Your Wealth Strategy Blueprint in One
-                    Powerful
-                    Session</h1> <!-- Added animation -->
-                <p class="subheadline animate-slide-up" style="transition-delay: 0.4s;">A 4-hour strategic experience to
-                    build your wealth blueprint. One-on-One, Live on Zoom</p> <!-- Added animation -->
+        <div class="container">
+            <div class="logo-container animate-fade-in" style="transition-delay: 0.1s;"> <!-- Added animation -->
+                <img src="{{ asset('images/logo.png') }}" alt="F.R.E.D. Logo - D'Andrea Felipa" class="hero-logo">
             </div>
+            <span class="vip-day-badge animate-fade-in" style="transition-delay: 0.2s;">VIP Day</span>
+            <!-- Added animation -->
+            <h1 class="animate-slide-up" style="transition-delay: 0.3s;">Your Wealth Strategy Blueprint in One
+                Powerful
+                Session</h1> <!-- Added animation -->
+            <p class="subheadline animate-slide-up" style="transition-delay: 0.4s;">A 4-hour strategic experience to
+                build your wealth blueprint. One-on-One, Live on Zoom</p> <!-- Added animation -->
+        </div>
     </header>
 
     <main>
@@ -169,8 +160,8 @@
         <section id="cta">
             <div class="container">
                 <h2 class="animate-slide-up">Ready to Build Your Blueprint?</h2>
-                <a href="https://buy.stripe.com/test_4gMbJ35UDdsVcvXbrB14400" target="_blank" class="cta-button animate-zoom-in"
-                    style="transition-delay: 0.2s;">Reserve Your VIP Day</a>
+                <a href="https://buy.stripe.com/test_4gMbJ35UDdsVcvXbrB14400" target="_blank"
+                    class="cta-button animate-zoom-in" style="transition-delay: 0.2s;">Reserve Your VIP Day</a>
                 <p class="price-info animate-fade-in" style="transition-delay: 0.3s;">VIP Day Investment: $2,500</p>
 
                 <div class="important-note animate-fade-in" style="transition-delay: 0.4s;">
@@ -180,8 +171,8 @@
                 </div>
 
                 <div class="jotform-link-placeholder animate-fade-in" style="transition-delay: 0.5s;">
-                    <p>To ensure we make the most of our time, please <a
-                            href="https://calendly.com/wealthydebt/vip-day" target="_blank">Schedule your session</a> after reserving
+                    <p>To ensure we make the most of our time, please <a href="https://calendly.com/wealthydebt/vip-day"
+                            target="_blank">Schedule your session</a> after reserving
                         your spot.</p>
                 </div>
             </div>

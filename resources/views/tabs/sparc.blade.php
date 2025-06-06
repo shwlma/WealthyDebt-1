@@ -15,16 +15,8 @@
 </head>
 
 <body>
-    <header class="hero"> <!-- This section is now white -->
-        <nav class="main-nav">
-            <div class="nav-links">
-                <a href="{{ route('home') }}">Home</a> |
-                <a href="{{ route('about') }}">About</a> |
-                <a href="{{ route('services') }}">Services</a> |
-                <a href="{{ route('contact') }}">Contact</a> |
-                <a href="{{ route('login') }}" class="login-link">Login</a>
-            </div>
-        </nav>
+      @include('layouts.header')
+    <header class="hero"> 
         <div class="container">
             <div class="hero-logo">
                 <!-- REPLACE THIS WITH YOUR LOGO IMAGE -->

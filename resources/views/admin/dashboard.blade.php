@@ -7,16 +7,17 @@
             <div>
                 <label for="source_filter">Filter by Source:</label>
                 <input type="text" id="source_filter" name="source" placeholder="Website, Social Media, etc."
-                       oninput="applyFiltersAndSort()"
-                    value="{{ request('source') }}">
+                    oninput="applyFiltersAndSort()" value="{{ request('source') }}">
             </div>
 
             <div>
                 <label for="sort_by">Sort By:</label>
                 <select id="sort_by" name="sort_by">
-                    <option value="last_contacted" {{ request('sort_by') == 'last_contacted' ? 'selected' : '' }}>Last Contact</option>
+                    <option value="last_contacted" {{ request('sort_by') == 'last_contacted' ? 'selected' : '' }}>Last Contact
+                    </option>
                     <option value="name" {{ request('sort_by') == 'name' ? 'selected' : '' }}>Name</option>
-                    <option value="created_at" {{ request('sort_by') == 'created_at' ? 'selected' : '' }}>Date Captured</option>
+                    <option value="created_at" {{ request('sort_by') == 'created_at' ? 'selected' : '' }}>Date Captured
+                    </option>
                 </select>
             </div>
 
@@ -55,7 +56,7 @@
 
         function renderTable(leadsToRender) {
             const tableBody = document.getElementById('leads-table-body');
-            tableBody.innerHTML = ''; 
+            tableBody.innerHTML = '';
 
             if (leadsToRender.length === 0) {
                 const noDataRow = document.createElement('tr');
@@ -66,7 +67,7 @@
 
             leadsToRender.forEach(lead => {
                 const row = document.createElement('tr');
-                row.dataset.leadId = lead.id; 
+                row.dataset.leadId = lead.id;
 
                 const lastContacted = lead.last_contacted ? new Date(lead.last_contacted).toLocaleString('en-US', {
                     year: 'numeric',
@@ -77,14 +78,20 @@
                 }).replace(',', '') : 'N/A';
 
                 row.innerHTML = `
-                    <td>${escapeHtml(lead.name)}</td>
-                    <td>${escapeHtml(lead.email)}</td>
-                    <td>${escapeHtml(lead.phone)}</td>
-                    <td>${escapeHtml(lead.source)}</td>
-                    <td>${escapeHtml(lead.utm)}</td>
-                    <td>${escapeHtml(lastContacted)}</td>
-                    <td class="editable-cell" contenteditable="true">${escapeHtml(lead.notes_tags || '')}</td>
-                `;
+                        <td>${escapeHtml(lead.name)}</td>
+                        <td>${escapeHtml(lead.email)}</td>
+                        <td>${escapeHtml(lead.phone)}</td>
+                        <td>${escapeHtml(lead.source)}</td>
+                        <td>${escapeHtml(lead.utm)}</td>
+                        <td>${escapeHtml(lastContacted)}</td>
+                        <td>
+                            <form method="POST" action="/admin/leads/${lead.id}/note" class="notes-form">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <textarea name="notes_tags" rows="2" style="width: 100%;">${escapeHtml(lead.notes_tags || '')}</textarea>
+                                <button type="submit">Save</button>
+                            </form>
+                        </td>
+                    `;
                 tableBody.appendChild(row);
             });
 
@@ -99,11 +106,11 @@
                 '"': '&quot;',
                 "'": '&#039;'
             };
-            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+            return text.replace(/[&<>"']/g, function (m) { return map[m]; });
         }
 
         function applyFiltersAndSort() {
-            let filteredLeads = [...allLeads]; 
+            let filteredLeads = [...allLeads];
 
             const sourceFilter = document.getElementById('source_filter').value.toLowerCase();
             if (sourceFilter) {
@@ -135,7 +142,7 @@
             });
 
             renderTable(filteredLeads);
-            updateExportLink(); 
+            updateExportLink();
         }
 
         function attachEditableCellListeners() {
@@ -158,11 +165,11 @@
                             const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
                             const csrfToken = csrfTokenElement ? csrfTokenElement.content : '';
 
-                            const response = await fetch(`/admin/leads/${leadId}/note`, { 
+                            const response = await fetch(`/admin/leads/${leadId}/note`, {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': csrfToken 
+                                    'X-CSRF-TOKEN': csrfToken
                                 },
                                 body: JSON.stringify({ notes_tags: newContent })
                             });
@@ -170,7 +177,7 @@
                             if (response.ok) {
                                 const data = await response.json();
                                 console.log('Note updated successfully:', data.message);
-                                originalContent = newContent; 
+                                originalContent = newContent;
 
                                 const leadIndex = allLeads.findIndex(lead => lead.id == leadId);
                                 if (leadIndex !== -1) {
@@ -184,15 +191,15 @@
                             }
                         } catch (error) {
                             console.error('Error during fetch:', error);
-                            cell.textContent = originalContent; 
+                            cell.textContent = originalContent;
                         }
                     }
                 });
 
                 cell.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter') {
-                        e.preventDefault(); 
-                        cell.blur(); 
+                        e.preventDefault();
+                        cell.blur();
                     }
                 });
             });

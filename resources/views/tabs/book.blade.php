@@ -14,16 +14,8 @@
 </head>
 
 <body>
+    @include('layouts.header')
     <header class="hero-section">
-        <nav class="main-nav">
-            <div class="nav-links">
-                <a href="{{ route('home') }}">Home</a> |
-                <a href="{{ route('about') }}">About</a> |
-                <a href="{{ route('services') }}">Services</a> |
-                <a href="{{ route('contact') }}">Contact</a> |
-                <a href="{{ route('login') }}" class="login-link">Login</a>
-            </div>
-        </nav>
         <div class="hero-container">
             <div class="hero-heading-wrapper">
                 <img src="{{ asset('images/logo.png') }}" alt="F.R.E.D. Logo - D'Andrea Felipa" class="hero-logo">

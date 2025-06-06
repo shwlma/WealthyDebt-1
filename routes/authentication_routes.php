@@ -12,6 +12,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
      Route::get('/dashboard', [LeadController::class, 'Admin_dashboard'])->name('admin.dashboard');
+     Route::post('/admin/leads/{lead}/note', [LeadController::class, 'updateNote'])->name('admin.leads.note');
 });
 
 Route::middleware(['auth'])->prefix('user')->group(function () {

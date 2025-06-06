@@ -15,6 +15,7 @@ class Lead extends Model
         'source',
         'utm', 
         'last_contacted',
+        'notes_tags',
     ];
 
 
