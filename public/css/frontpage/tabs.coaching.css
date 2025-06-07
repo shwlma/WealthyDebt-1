@@ -1,354 +1,121 @@
 :root {
-    --primary-green: #006400;
-    /* Dark Green for CTA */
-    --primary-green-deep: #004d00;
-    /* Even darker green for gradients/hovers */
-    --accent-gold: #DAA520;
-    /* Goldenrod for accents */
-    --accent-gold-darker: #B8860B;
-    /* Darker gold for hovers */
-    --light-gold-bg: #FFF8DC;
-    /* Cornsilk - very light gold for BG */
-    --white: #FFFFFF;
-    --text-dark: #333333;
-    --text-light: #f8f9fa;
-    /* Used for text on dark backgrounds */
-    --text-grey: #555555;
-    --border-color: #e0e0e0;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    /* Updated Theme Variables to match previous design */
+    --dark-green-bg: #0A3622;
+    --primary-text-color: #000000; /* Black text for normal content */
+    --heading-text-color: #0A3622; /* Dark green for headings */
+    --accent-gold: #D4AF37;
+    --highlight-gold: #FFD700;
+    --cta-gold-bg: #B8860B;
+    --cta-gold-text: #FFFFFF;
+    --section-bg-white: #FFFFFF; /* White background for sections */
+    --subtle-text-color: #555555; /* Dark gray for subtle text */
 
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Lato', sans-serif;
+    /* Font variables */
+    --font-primary: 'Poppins', sans-serif;
+    --font-headings: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
 
-    /* Define common transition properties */
+    /* Transition variables */
     --transition-speed-fast: 0.2s;
     --transition-speed-medium: 0.3s;
     --transition-speed-slow: 0.5s;
     --transition-timing: ease-in-out;
 }
 
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     font-family: var(--font-body);
     line-height: 1.7;
-    color: var(--text-dark);
-    background-color: var(--white);
-    /* Default white background */
-    transition: background-color var(--transition-speed-slow) var(--transition-timing);
+    color: var(--primary-text-color); /* Black text */
+    background-color: var(--section-bg-white); /* White background */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
     width: 90%;
-    max-width: 960px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px 0;
 }
 
-/* Updated logo styling to target .hero-logo class */
+/* --- Hero/Header Section --- */
+header {
+    background-color: var(--section-bg-white); /* White background */
+    padding: 60px 0 50px;
+    border-bottom: 4px solid var(--accent-gold);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
 .hero-logo {
-    max-width: 150px; /* Further adjusted max-width for the logo */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensures margin auto works for centering */
-    margin: 0 auto 20px auto; /* Center and add space below logo */
-    border-radius: 50%; /* Optional: if your logo is circular */
+    flex-shrink: 0;
+    max-width: 120px;
+    height: auto;
+    display: block;
+    transition: transform var(--transition-speed-medium) var(--transition-timing);
+    border-radius: 50%;
     border: 2px solid var(--accent-gold);
-    transition: transform var(--transition-speed-fast) var(--transition-timing);
 }
 
 .hero-logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+.hero-text-content {
+    flex-grow: 1;
+    text-align: left;
 }
 
 header h1 {
-    font-family: var(--font-heading);
-    font-size: 1.8em;
+    font-family: var(--font-headings);
+    font-size: 4.5rem; /* Increased from 3.5rem */
+    color: var(--heading-text-color); /* Dark green for headings */
+    margin-bottom: 0.3em;
+    line-height: 1.2;
     font-weight: 700;
 }
 
-/* --- Session Sections --- */
-.session-section {
-    padding: 60px 0;
-    transition: background-color var(--transition-speed-slow) var(--transition-timing), opacity var(--transition-speed-slow) var(--transition-timing);
+header .subheadline {
+    font-size: 2rem; /* Increased from 1.6rem */
+    color: var(--subtle-text-color); /* Dark gray for subheading */
+    margin-bottom: 1.5em;
+    font-weight: 300;
 }
 
-.session-section:nth-child(odd) {
-    /* First section gets light gold */
-    background-color: var(--light-gold-bg);
-}
-
-.session-section:nth-child(even) {
-    /* Second section gets white */
-    background-color: var(--white);
-    border-top: 5px solid var(--primary-green);
-    /* Green accent */
-}
-
-.session-intro {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.session-intro h2 {
-    font-family: var(--font-heading);
-    font-size: 2.5em;
-    color: var(--primary-green);
-    margin-bottom: 10px;
-}
-
-.session-section.gold-bg .session-intro h2 {
-    /* Slightly different for gold bg */
-    color: #8B4513;
-    /* SaddleBrown - a darker gold/brown */
-}
-
-.price-tag {
-    font-size: 1.2em;
-    font-weight: 700;
-    color: var(--accent-gold);
-    margin-top: 5px;
-}
-
-.duration {
-    font-size: 0.9em;
-    font-weight: normal;
-    color: var(--text-grey);
-}
-
-.session-section h3 {
-    /* Headline */
-    font-family: var(--font-heading);
-    font-size: 2em;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.subheadline {
-    font-size: 1.2em;
-    color: var(--text-grey);
-    text-align: center;
-    margin-bottom: 30px;
-    font-style: italic;
-}
-
-.content-block {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    /* Slight transparency if on colored bg */
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    transition: transform var(--transition-speed-fast) ease-out, box-shadow var(--transition-speed-fast) ease-out;
-}
-
-.session-section.gold-bg .content-block {
-    background-color: rgba(255, 255, 255, 0.7);
-    /* More opaque on gold bg */
-}
-
-.content-block:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.content-block h4 {
-    font-family: var(--font-heading);
-    font-size: 1.5em;
-    color: var(--primary-green);
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--accent-gold);
-    padding-bottom: 5px;
-    display: inline-block;
-}
-
-.content-block p,
-.content-block ul {
-    margin-bottom: 15px;
-    color: var(--text-grey);
-}
-
-.content-block ul {
-    list-style-type: none;
-    /* Remove default bullets */
-    padding-left: 0;
-}
-
-.content-block ul li {
-    padding-left: 25px;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.content-block ul li::before {
-    content: "✓";
-    /* Checkmark */
-    color: var(--accent-gold);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: transform var(--transition-speed-fast) ease;
-}
-
-.content-block ul li:hover::before {
-    transform: scale(1.3);
-}
-
-.content-block ul ul {
-    /* Nested list */
-    margin-top: 10px;
-    margin-left: 20px;
-    padding-left: 0;
-}
-
-.content-block ul ul li::before {
-    content: "›";
-    /* Arrow for sub-items */
-    color: var(--primary-green);
-}
-
-.divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
-    margin: 40px auto;
-    width: 80%;
-}
-
-.testimonial {
-    font-style: italic;
-    color: var(--text-grey);
-    padding: 15px 20px;
-    border-left: 4px solid var(--accent-gold);
-    background-color: #f9f9f9;
-    margin: 20px 0;
-    border-radius: 0 4px 4px 0;
-    position: relative;
-}
-
-.testimonial::before {
-    content: '“';
-    font-size: 3em;
-    color: var(--accent-gold);
-    opacity: 0.3;
-    position: absolute;
-    left: 10px;
-    top: -10px;
-}
-
-/* --- CTA Area & Buttons --- */
-.cta-area {
-    text-align: center;
-    margin-top: 40px;
-    padding: 30px;
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 5px 20px var(--shadow-color);
-}
-
-.session-section.gold-bg .cta-area {
-    /* On gold bg, make CTA area pop more */
-    background-color: var(--white);
-}
-
-.emphasis {
-    font-size: 1.3em;
-    font-weight: 700;
-    color: var(--primary-green);
-    margin-bottom: 15px;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1.1em;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 50px;
-    /* Pill shape */
-    margin: 20px 5px 10px;
-    transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease, transform var(--transition-speed-fast) ease, box-shadow var(--transition-speed-fast) ease;
-    border: none;
-    cursor: pointer;
-}
-
-.primary-cta {
-    /* Green button */
-    background-color: var(--primary-green);
-    color: var(--white);
-    box-shadow: 0 4px 10px rgba(0, 100, 0, 0.3);
-}
-
-.primary-cta:hover {
-    background-color: var(--primary-green-deep);
-    /* Darker green */
-    color: var(--white);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(0, 100, 0, 0.4);
-}
-
-.gold-cta {
-    /* Gold button */
-    background-color: var(--accent-gold);
-    color: var(--text-dark);
-    box-shadow: 0 4一層 10px rgba(218, 165, 32, 0.3);
-}
-
-.gold-cta:hover {
-    background-color: var(--accent-gold-darker);
-    /* Darker gold */
-    color: var(--white);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(218, 165, 32, 0.4);
-}
-
-.stripe-info {
-    font-size: 0.9em;
-    color: var(--text-grey);
-    margin-top: 5px;
-}
-
-/* --- Footer --- */
-footer {
-    background-color: var(--text-dark);
-    color: var(--text-light);
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 40px;
-}
-
-/* --- Navigation Bar (Fixed for your HTML structure) --- */
+/* --- Navigation Bar --- */
 .main-nav {
     text-align: center;
     padding-bottom: 20px;
-    /* Space between nav and content below it */
-    /* Removed the border-bottom here as the header itself provides the separation */
 }
 
 .main-nav .nav-links {
     display: inline-block;
-    /* Allows the set of links to be centered */
 }
 
 .main-nav .nav-links a {
-    color: var(--white);
-    /* Text color for nav links (on the green header background) */
+    color: var(--primary-text-color); /* Black text */
     text-decoration: none;
-    font-family: var(--font-body);
+    font-family: var(--font-primary);
     font-weight: 600;
     font-size: 1.1rem;
     margin: 0 15px;
     transition: color var(--transition-speed-medium) var(--transition-timing),
-        border-bottom-color var(--transition-speed-medium) var(--transition-timing);
+                border-bottom-color var(--transition-speed-medium) var(--transition-timing);
     position: relative;
     padding-bottom: 5px;
-    /* For the underline effect */
     display: inline-block;
-    /* Essential for proper spacing and | alignment */
 }
 
 .main-nav .nav-links a::after {
@@ -359,7 +126,6 @@ footer {
     width: 0;
     height: 2px;
     background-color: var(--accent-gold);
-    /* Gold underline */
     transition: width var(--transition-speed-medium) var(--transition-timing);
 }
 
@@ -370,75 +136,489 @@ footer {
 
 .main-nav .nav-links a:hover,
 .main-nav .nav-links a:focus {
-    color: var(--accent-gold);
-    /* Gold on hover/focus for better contrast on green header */
+    color: var(--heading-text-color); /* Dark green on hover */
 }
 
-/* Specific style for the login link (now a regular text link) */
 .main-nav .login-link {
     color: var(--accent-gold);
-    /* Gold by default for login link */
     text-decoration: none;
     border: none;
-    /* Removed the border */
     padding: 0;
-    /* Removed padding */
     border-radius: 0;
-    /* Removed border-radius */
     transition: color var(--transition-speed-fast) var(--transition-timing);
 }
 
 .main-nav .login-link:hover {
     background-color: transparent;
-    /* No background on hover */
-    color: var(--white);
-    /* White on hover for login link */
+    color: var(--heading-text-color);
     text-decoration: underline;
-    /* Optional: Add underline on hover */
 }
 
+/* --- Session Sections --- */
+.session-section {
+    padding: 70px 0;
+    background-color: var(--section-bg-white); /* White background */
+    transition: background-color var(--transition-speed-slow) var(--transition-timing);
+}
+
+.session-section:nth-child(even) {
+    background-color: var(--section-bg-light-gray); /* Light gray for alternating sections */
+}
+
+.session-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.session-intro h2 {
+    font-family: var(--font-headings);
+    font-size: 2rem; /* Reduced from 2.5rem */
+    color: var(--heading-text-color); /* Dark green for headings */
+    margin-bottom: 0.8em;
+    position: relative;
+    padding-bottom: 0.5em;
+}
+
+.session-intro h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-gold); /* Gold underline */
+    margin: 0.3em auto 0;
+    transition: width var(--transition-speed-medium) var(--transition-timing);
+}
+
+.session-intro h2:hover::after {
+    width: 120px;
+}
+
+.price-tag {
+    font-size: 1.8rem; /* Reduced from 2.5rem */
+    font-weight: 700;
+    color: var(--highlight-gold);
+    margin: 0.5em 0 1em;
+}
+
+.duration {
+    font-size: 0.8em; /* Reduced from 0.9em */
+    font-weight: normal;
+    color: var(--subtle-text-color);
+}
+
+.session-section h3 {
+    font-family: var(--font-headings);
+    font-size: 1.6em; /* Reduced from 2em */
+    color: var(--heading-text-color); /* Dark green for headings */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subheadline {
+    font-size: 1em; /* Reduced from 1.2em */
+    color: var(--subtle-text-color); /* Dark gray for subheading */
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.content-block {
+    background-color: var(--section-bg-light-gray);
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    transition: transform var(--transition-speed-medium) var(--transition-timing);
+}
+
+.session-section:nth-child(even) .content-block {
+    background-color: var(--section-bg-white);
+}
+
+.content-block:hover {
+    transform: translateY(-2px);
+}
+
+.content-block h4 {
+    font-family: var(--font-headings);
+    font-size: 1.5em;
+    color: var(--heading-text-color); /* Dark green for headings */
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.content-block p,
+.content-block ul {
+    margin-bottom: 15px;
+    color: var(--primary-text-color); /* Black text */
+    font-size: 1.05rem;
+}
+
+.content-block p.subtle {
+    color: var(--subtle-text-color);
+}
+
+.content-block strong,
+.content-block b {
+    font-weight: 600;
+    color: var(--heading-text-color); /* Dark green for emphasis */
+}
+
+/* --- Feature Lists --- */
+.feature-list,
+.content-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-list li,
+.content-block ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1em;
+    font-size: 1.05rem;
+    color: var(--primary-text-color); /* Black text */
+    transition: color var(--transition-speed-medium) var(--transition-timing);
+    padding-left: 0;
+    position: static;
+}
+
+.feature-list li:hover,
+.content-block ul li:hover {
+    color: var(--heading-text-color); /* Dark green on hover */
+}
+
+.feature-list li::before,
+.content-block ul li::before {
+    content: "✓";
+    color: var(--accent-gold);
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 1.2em;
+    margin-top: 4px;
+    transition: transform var(--transition-speed-fast) var(--transition-timing), 
+                color var(--transition-speed-medium) var(--transition-timing);
+    position: static;
+    left: auto;
+    top: auto;
+}
+
+.feature-list li:hover::before,
+.content-block ul li:hover::before {
+    transform: scale(1.1) translateX(2px);
+    color: var(--highlight-gold);
+}
+
+.content-block ul ul li::before {
+    content: "›";
+    color: var(--heading-text-color);
+}
+
+/* --- Testimonial Styling --- */
+.testimonial {
+    font-style: italic;
+    color: var(--primary-text-color); /* Black text */
+    padding: 25px;
+    background-color: var(--section-bg-light-gray);
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.6;
+    transition: transform var(--transition-speed-medium) var(--transition-timing);
+}
+
+.testimonial:hover {
+    transform: translateY(-2px);
+}
+
+.testimonial::before,
+.testimonial::after {
+    font-family: var(--font-headings);
+    font-size: 5rem;
+    color: var(--accent-gold);
+    position: absolute;
+    opacity: 0.8;
+    transition: transform var(--transition-speed-medium) var(--transition-timing);
+}
+
+.testimonial:hover::before,
+.testimonial:hover::after {
+    transform: scale(1.05);
+}
+
+.testimonial::before {
+    content: '"';
+    left: 10px;
+    top: -0.5em;
+}
+
+.testimonial::after {
+    content: '"';
+    right: 10px;
+    bottom: -0.8em;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+    margin: 40px auto;
+    width: 80%;
+}
+
+/* --- CTA Area & Buttons --- */
+.cta-area,
+.cta-section {
+    background-color: var(--section-bg-white); /* White background */
+    text-align: center;
+    margin-top: 40px;
+    padding: 70px 20px;
+    border-radius: 8px;
+}
+
+.cta-section h2 {
+    color: var(--heading-text-color); /* Dark green heading */
+}
+
+.cta-section h2::after {
+    background-color: var(--accent-gold); /* Gold underline */
+}
+
+.emphasis {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--heading-text-color); /* Dark green for emphasis */
+    margin-bottom: 15px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.emphasis .gold-highlight {
+    color: var(--accent-gold);
+}
+
+.cta-price {
+    font-size: 2rem; /* Reduced from 2.5rem */
+    font-weight: 700;
+    color: var(--highlight-gold);
+    margin: 0.5em 0 1em;
+}
+
+.cta-price .currency {
+    font-size: 1.2rem;
+    vertical-align: super;
+    margin-right: 2px;
+}
+
+.cta-button,
+.cta-button-main,
+.primary-cta {
+    display: inline-block;
+    background-color: var(--cta-gold-bg);
+    color: var(--section-bg-white); /* White text on gold button */
+    padding: 18px 45px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 20px 5px 10px;
+    transition: background-color var(--transition-speed-medium) var(--transition-timing),
+                color var(--transition-speed-medium) var(--transition-timing),
+                transform var(--transition-speed-fast) var(--transition-timing);
+}
+
+.cta-button:hover,
+.cta-button-main:hover,
+.primary-cta:hover,
+.cta-button:focus,
+.cta-button-main:focus,
+.primary-cta:focus {
+    background-color: var(--highlight-gold);
+    color: #000; /* Black text on brighter gold */
+    transform: translateY(-3px) scale(1.02);
+}
+
+.gold-cta {
+    background-color: var(--accent-gold);
+    color: var(--primary-text-color);
+}
+
+.gold-cta:hover {
+    background-color: var(--highlight-gold);
+    color: #000;
+    transform: translateY(-3px) scale(1.02);
+}
+
+.secondary-action-link {
+    display: block;
+    color: var(--primary-text-color); /* Black text */
+    text-decoration: none;
+    font-weight: 600;
+    margin: 15px auto;
+    font-size: 1.1rem;
+    transition: color var(--transition-speed-medium) var(--transition-timing),
+                letter-spacing var(--transition-speed-medium) var(--transition-timing);
+}
+
+.secondary-action-link:hover,
+.secondary-action-link:focus {
+    color: var(--heading-text-color); /* Dark green on hover */
+    letter-spacing: 0.5px;
+}
+
+.stripe-info {
+    font-size: 0.9em;
+    color: var(--subtle-text-color);
+    margin-top: 5px;
+}
+
+/* --- Final Pitch & Important Notice --- */
+.final-pitch {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--section-bg-light-gray); /* Light gray background */
+}
+
+.final-pitch p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--primary-text-color); /* Black text */
+}
+
+.important-notice-section {
+    padding: 50px 0;
+    background-color: var(--section-bg-white); /* White background */
+}
+
+.important-notice {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--section-bg-light-gray); /* Light gray background */
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform var(--transition-speed-medium) var(--transition-timing);
+}
+
+.important-notice:hover {
+    transform: translateY(-2px);
+}
+
+.important-notice p {
+    margin: 0.5em 0;
+    font-weight: 400;
+    color: var(--primary-text-color); /* Black text */
+}
+
+.important-notice strong {
+    color: var(--heading-text-color); /* Dark green for emphasis */
+    font-weight: 700;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--section-bg-light-gray); /* Light gray background */
+    color: var(--subtle-text-color); /* Dark gray text */
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent-gold);
+}
+
+footer a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color var(--transition-speed-medium) var(--transition-timing), 
+                text-decoration-color var(--transition-speed-medium) var(--transition-timing);
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: underline;
+    color: var(--highlight-gold);
+    text-decoration-color: var(--highlight-gold);
+}
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-logo {
+        margin-bottom: 20px;
+        max-width: 100px;
+    }
+
+    .hero-text-content {
+        text-align: center;
     }
 
     header h1 {
-        font-size: 1.5em;
+        font-size: 3rem; /* Increased from 2.5rem */
     }
 
-    /* Adjusted logo height for smaller screens */
-    .hero-logo {
-        max-width: 120px; /* Reduced max-width for tablets */
-        margin-bottom: 15px;
+    header .subheadline {
+        font-size: 1.5rem; /* Increased from 1.2rem */
     }
 
     .session-intro h2 {
-        font-size: 2em;
+        font-size: 1.6rem; /* Reduced from 2rem */
+    }
+
+    .session-intro h2:hover::after {
+        width: 100px;
     }
 
     .session-section h3 {
-        font-size: 1.6em;
+        font-size: 1.4em; /* Reduced from 1.6em */
     }
 
     .subheadline {
-        font-size: 1.1em;
+        font-size: 0.9em; /* Reduced from 1.1em */
     }
 
     .content-block h4 {
         font-size: 1.3em;
     }
 
-    .cta-button {
-        padding: 12px 25px;
-        font-size: 1em;
+    .cta-button,
+    .cta-button-main,
+    .primary-cta {
+        padding: 15px 35px;
+        font-size: 1.1rem;
         width: 90%;
-        /* Make buttons full-width on small screens */
         max-width: 300px;
     }
 
-    /* Responsive Navigation Adjustments */
+    .testimonial {
+        font-size: 1.1rem;
+    }
+
+    .testimonial::before,
+    .testimonial::after {
+        display: none;
+    }
+
+    .final-pitch p {
+        font-size: 1.1rem;
+    }
+
+    .final-pitch .emphasis {
+        font-size: 1.5rem;
+    }
+
     .main-nav {
         padding-bottom: 15px;
     }
@@ -453,34 +633,39 @@ footer {
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.2em;
+        font-size: 2.2rem; /* Increased from 2rem */
     }
 
-    /* Further adjusted logo height for very small screens */
+    header .subheadline {
+        font-size: 1.2rem; /* Increased from 1rem */
+    }
+
     .hero-logo {
-        max-width: 90px; /* Further reduced max-width for mobile */
+        max-width: 90px;
         margin-bottom: 10px;
     }
 
     .session-intro h2 {
-        font-size: 1.8em;
+        font-size: 1.4em; /* Reduced from 1.8em */
+    }
+
+    .session-intro h2:hover::after {
+        width: 80px;
     }
 
     .session-section h3 {
-        font-size: 1.4em;
+        font-size: 1.2em; /* Reduced from 1.4em */
     }
 
     .content-block {
         padding: 15px;
     }
 
-    /* Responsive Navigation Adjustments for very small screens */
     .main-nav .nav-links a {
         margin: 0 8px;
         font-size: 0.9rem;
     }
 
-    /* Stack links vertically on very small screens for better readability */
     .main-nav .nav-links {
         display: flex;
         flex-direction: column;
@@ -489,12 +674,9 @@ footer {
 
     .main-nav .nav-links a {
         margin: 5px 0;
-        /* More vertical space when stacked */
         padding-bottom: 0;
-        /* Remove underline padding if stacking */
     }
 
-    /* Hide the underline effect when stacked */
     .main-nav .nav-links a::after {
         content: none;
     }

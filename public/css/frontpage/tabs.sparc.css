@@ -1,147 +1,129 @@
-  :root {
-      /* Dark Theme Variables (for body and most sections) */
-      --dark-green-bg: #0A3622;
-      --primary-text-color-on-dark: #F0F0F0;
-      /* Text on dark green BG */
-      --accent-gold: #D4AF37;
-      --highlight-gold: #FFD700;
-      --cta-gold-bg: #B8860B;
-      --cta-gold-text: #FFFFFF;
-      /* Text on gold CTA button */
-      --section-bg-subtle-darker: #082f1e;
-      --heading-color-on-dark: var(--accent-gold);
-      --subtle-text-on-dark: #cccccc;
+:root {
+    /* Updated Theme Variables */
+    --dark-green-bg: #0A3622;
+    --primary-text-color: #000000; /* Black text for normal content */
+    --heading-text-color: #0A3622; /* Dark green for headings */
+    --accent-gold: #D4AF37;
+    --highlight-gold: #FFD700;
+    --cta-gold-bg: #B8860B;
+    --cta-gold-text: #FFFFFF;
+    --section-bg-white: #FFFFFF; /* White background for sections */
+    --section-bg-light-gray: #F8F8F8; /* Light gray for alternating sections */
+    --subtle-text-color: #555555; /* Dark gray for subtle text */
 
-      /* Light Theme Variables (primarily for Hero section) */
-      --white: #FFFFFF;
-      --text-color-on-light: #333333;
-      /* Standard dark text for light BG */
-      --heading-color-on-light: var(--dark-green-bg);
-      /* Dark green headings on white BG */
-      --subtle-text-on-light: #555555;
+    /* Keep existing font and transition variables */
+    --font-primary: 'Poppins', sans-serif;
+    --font-headings: 'Playfair Display', serif;
+    --font-body-alt: 'Roboto', sans-serif;
 
-      --font-primary: 'Montserrat', sans-serif;
-      --font-headings: 'Playfair Display', serif;
-      --font-body-alt: 'Roboto', sans-serif;
+    --transition-speed-fast: 0.2s;
+    --transition-speed-medium: 0.3s;
+    --transition-timing: ease-in-out;
+}
 
-      --transition-speed-fast: 0.2s;
-      --transition-speed-medium: 0.3s;
-      --transition-timing: ease-in-out;
-  }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  *,
-  *::before,
-  *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-  }
+body {
+    font-family: var(--font-body-alt);
+    line-height: 1.7;
+    color: var(--primary-text-color); /* Black text */
+    background-color: var(--section-bg-white); /* White background */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-  body {
-      font-family: var(--font-body-alt);
-      line-height: 1.7;
-      color: var(--primary-text-color-on-dark);
-      /* Default text color for dark sections */
-      background-color: var(--dark-green-bg);
-      /* Default background */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-  }
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-  .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-  }
+/* --- Hero Section --- */
+.hero {
+    background-color: var(--section-bg-white); /* White background */
+    padding: 60px 0 50px;
+    border-bottom: 4px solid var(--accent-gold);
+}
 
-  /* --- Hero Section (NOW WHITE BACKGROUND) --- */
-  .hero {
-      background-color: var(--white);
-      /* <<<< CHANGED HERE */
-      padding: 60px 0 50px;
-      border-bottom: 4px solid var(--accent-gold);
-  }
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
 
-  .hero .container {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-  }
+.hero-logo {
+    flex-shrink: 0;
+}
 
-  .hero-logo {
-      flex-shrink: 0;
-  }
+.hero-logo img,
+.hero-logo .text-logo {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    transition: transform var(--transition-speed-medium) var(--transition-timing);
+}
 
-  .hero-logo img,
-  .hero-logo .text-logo {
-      max-width: 120px;
-      height: auto;
-      display: block;
-      transition: transform var(--transition-speed-medium) var(--transition-timing);
-  }
+.hero-logo img:hover,
+.hero-logo .text-logo:hover {
+    transform: scale(1.05);
+}
 
-  .hero-logo img:hover,
-  .hero-logo .text-logo:hover {
-      transform: scale(1.05);
-  }
+.hero-logo .text-logo {
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    font-weight: 700;
+    border: 2px solid var(--accent-gold);
+    padding: 10px 15px;
+    display: inline-block;
+    line-height: 1;
+}
 
-  .hero-logo .text-logo {
-      font-family: var(--font-headings);
-      font-size: 2.5rem;
-      color: var(--accent-gold);
-      /* Gold text logo still works on white */
-      font-weight: 700;
-      border: 2px solid var(--accent-gold);
-      /* Gold border */
-      padding: 10px 15px;
-      display: inline-block;
-      line-height: 1;
-  }
+.hero-text-content {
+    flex-grow: 1;
+    text-align: left;
+}
 
-  .hero-text-content {
-      flex-grow: 1;
-      text-align: left;
-  }
+.hero h1 {
+    font-family: var(--font-headings);
+    font-size: 3rem;
+    color: var(--heading-text-color); /* Dark green for headings */
+    margin-bottom: 0.3em;
+    line-height: 1.2;
+}
 
-  .hero h1 {
-      font-family: var(--font-headings);
-      font-size: 3rem;
-      color: var(--heading-color-on-light);
-      /* <<<< CHANGED HERE (Dark green text) */
-      margin-bottom: 0.3em;
-      line-height: 1.2;
-  }
+.hero h1 .spark-text {
+    color: var(--heading-text-color); /* Dark green for "SPARC Session" */
+    font-weight: 700;
+}
 
-  .hero h1 .spark-text {
-      /* "SPARC Session" */
-      color: var(--highlight-gold);
-      /* Brighter gold - good on white */
-      font-weight: 700;
-  }
+.hero h1 .gold-highlight {
+    color: var(--heading-text-color); /* Dark green for "Strike the Match" */
+    font-style: italic;
+}
 
-  .hero h1 .gold-highlight {
-      /* "Strike the Match..." */
-      color: var(--accent-gold);
-      /* Gold - good on white */
-      font-style: italic;
-  }
+.hero .subheadline {
+    font-size: 1.3rem;
+    color: var(--subtle-text-color); /* Dark gray for subheading */
+    margin-bottom: 1.5em;
+    font-weight: 300;
+    max-width: 100%;
+}
 
-  .hero .subheadline {
-      font-size: 1.3rem;
-      color: var(--subtle-text-on-light);
-      /* <<<< CHANGED HERE (Darker gray) */
-      margin-bottom: 1.5em;
-      font-weight: 300;
-      max-width: 100%;
-  }
-/* --- Navigation Bar (on the Hero Section) --- */
+/* --- Navigation Bar --- */
 header.hero nav {
     text-align: center;
-    padding-bottom: 20px; /* Space between nav and hero content */
+    padding-bottom: 20px;
 }
 
 header.hero nav a {
-    color: var(--text-color-on-light); /* Dark text on white background */
+    color: var(--primary-text-color); /* Black text */
     text-decoration: none;
     font-family: var(--font-primary);
     font-weight: 600;
@@ -150,7 +132,7 @@ header.hero nav a {
     transition: color var(--transition-speed-medium) var(--transition-timing),
                 border-bottom-color var(--transition-speed-medium) var(--transition-timing);
     position: relative;
-    padding-bottom: 5px; /* For the underline effect */
+    padding-bottom: 5px;
 }
 
 header.hero nav a::after {
@@ -160,7 +142,7 @@ header.hero nav a::after {
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: var(--accent-gold); /* Gold underline */
+    background-color: var(--accent-gold);
     transition: width var(--transition-speed-medium) var(--transition-timing);
 }
 
@@ -171,484 +153,381 @@ header.hero nav a:focus::after {
 
 header.hero nav a:hover,
 header.hero nav a:focus {
-    color: var(--dark-green-bg); /* Dark green on hover/focus */
+    color: var(--dark-green-bg); /* Dark green on hover */
 }
 
-/* Responsive Navigation Adjustments */
-@media (max-width: 768px) {
-    header.hero nav {
-        padding-bottom: 15px;
-    }
-
-    header.hero nav a {
-        font-size: 1rem;
-        margin: 0 10px;
-        display: inline-block; /* Allows vertical stacking if needed */
-        margin-bottom: 5px;
-    }
+/* --- General Section Styling --- */
+section:not(.hero) {
+    padding: 70px 0;
+    background-color: var(--section-bg-white); /* White background */
 }
 
-@media (max-width: 480px) {
-    header.hero nav a {
-        margin: 0 8px;
-        font-size: 0.9rem;
-    }
+section:not(.hero):nth-of-type(even) {
+    background-color: var(--section-bg-light-gray); /* Light gray for alternating sections */
 }
-  /* --- General Section Styling (Dark Theme for rest of page) --- */
-  section:not(.hero) {
-      /* Apply to sections OTHER than hero */
-      padding: 70px 0;
-  }
 
-  section:not(.hero):nth-of-type(even) {
-      /* nth-of-type to correctly alternate after hero */
-      background-color: var(--section-bg-subtle-darker);
-  }
-
-  /* If hero is the first section, and you want the section *after* hero to be normal, then the one after that to be darker: */
-  /* Removed empty ruleset for main section:nth-child(odd) */
-
-  main section:nth-child(even) {
-      /* Second section in main (what-we-do) */
-      background-color: var(--section-bg-subtle-darker);
-  }
-
-  h2 {
-      /* Styles for H2 in dark sections */
-      font-family: var(--font-headings);
-      font-size: 2.5rem;
-      color: var(--heading-color-on-dark);
-      /* Gold */
-      margin-bottom: 0.8em;
-      text-align: center;
-      position: relative;
-      padding-bottom: 0.5em;
-  }
-
-  h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 3px;
-      background-color: var(--primary-text-color-on-dark);
-      /* Off-white underline */
-      opacity: 0.7;
-      margin: 0.3em auto 0;
-      transition: width var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  h2:hover::after {
-      width: 120px;
-  }
-
-  /* Paragraphs in dark sections */
-  p {
-      margin-bottom: 1.2em;
-      font-size: 1.05rem;
-      color: var(--primary-text-color-on-dark);
-  }
-
-  p.subtle {
-      /* Specifically for subtle paragraphs in dark sections */
-      color: var(--subtle-text-on-dark);
-  }
-
-  /* Strong/bold in dark sections */
-  strong,
-  b {
-      font-weight: 600;
-      color: var(--highlight-gold);
-      /* Gold emphasis */
-  }
-
-  /* --- List Styling (for dark sections) --- */
-  .feature-list {
-      list-style: none;
-      padding-left: 0;
-  }
-
-  .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 1em;
-      font-size: 1.05rem;
-      color: var(--primary-text-color-on-dark);
-      /* Text color for list items */
-      transition: color var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  .feature-list li:hover {
-      color: var(--highlight-gold);
-  }
-
-  .feature-list li i {
-      color: var(--accent-gold);
-      margin-right: 12px;
-      font-size: 1.2em;
-      margin-top: 4px;
-      transition: transform var(--transition-speed-fast) var(--transition-timing), color var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  .feature-list li:hover i {
-      transform: scale(1.1) translateX(2px);
-      color: var(--highlight-gold);
-  }
-
-
-  /* --- Testimonial (Dark Section) --- */
-  .testimonial-section {
-      background-color: var(--section-bg-subtle-darker);
-      color: var(--primary-text-color-on-dark);
-      padding: 60px 0;
-  }
-
-  .testimonial-content {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 1.3rem;
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.6;
-      position: relative;
-      padding: 0 20px;
-      color: var(--primary-text-color-on-dark);
-  }
-
-  .testimonial-content::before,
-  .testimonial-content::after {
-      font-family: var(--font-headings);
-      font-size: 5rem;
-      color: var(--accent-gold);
-      position: absolute;
-      opacity: 0.8;
-      transition: transform var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  .testimonial-content:hover::before,
-  .testimonial-content:hover::after {
-      transform: scale(1.05);
-  }
-
-  .testimonial-content::before {
-      content: '“';
-      left: -10px;
-      top: -0.5em;
-  }
-
-  .testimonial-content::after {
-      content: '”';
-      right: -10px;
-      bottom: -0.8em;
-  }
-
-
-  /* --- Call to Action Section (Dark Section) --- */
-  .cta-section {
-      background-color: var(--dark-green-bg);
-      text-align: center;
-      padding: 70px 20px;
-  }
-
-  .cta-section h2 {
-      /* CTA heading specifically */
-      color: var(--primary-text-color-on-dark);
-      /* Off-white */
-  }
-
-  .cta-section h2::after {
-      /* CTA heading underline specifically */
-      background-color: var(--accent-gold);
-      /* Gold */
-  }
-
-  .cta-section .cta-price {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--highlight-gold);
-      margin: 0.5em 0 1em;
-  }
-
-  .cta-price .currency {
-      font-size: 1.2rem;
-      vertical-align: super;
-      margin-right: 2px;
-  }
-
-  .cta-button-main {
-      display: inline-block;
-      background-color: var(--cta-gold-bg);
-      color: var(--dark-green-bg);
-      /* Dark green text on gold button */
-      padding: 18px 45px;
-      text-decoration: none;
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      border: none;
-      cursor: pointer;
-      transition: background-color var(--transition-speed-medium) var(--transition-timing),
-          color var(--transition-speed-medium) var(--transition-timing),
-          transform var(--transition-speed-fast) var(--transition-timing),
-          box-shadow var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  .cta-button-main:hover,
-  .cta-button-main:focus {
-      background-color: var(--highlight-gold);
-      color: #000;
-      /* Black text on brighter gold */
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-  }
-
-  .cta-links-group {
-      margin-top: 20px;
-  }
-
-  .secondary-action-link {
-      display: block;
-      color: var(--primary-text-color-on-dark);
-      text-decoration: none;
-      font-weight: 600;
-      margin: 15px auto;
-      font-size: 1.1rem;
-      transition: color var(--transition-speed-medium) var(--transition-timing),
-          letter-spacing var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  .secondary-action-link i {
-      margin-right: 8px;
-      color: var(--accent-gold);
-      transition: color var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  .secondary-action-link:hover,
-  .secondary-action-link:focus {
-      color: var(--highlight-gold);
-      letter-spacing: 0.5px;
-  }
-
-  .secondary-action-link:hover i,
-  .secondary-action-link:focus i {
-      color: var(--highlight-gold);
-  }
-
-  /* --- Final Pitch & Notice (Dark Sections) --- */
-  .final-pitch {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: var(--section-bg-subtle-darker);
-      /* Darker green */
-  }
-
-  .final-pitch p {
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--primary-text-color-on-dark);
-  }
-
-  .final-pitch .emphasis {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--highlight-gold);
-      display: block;
-      margin-top: 0.5em;
-      letter-spacing: 1px;
-  }
-
-  .emphasis .gold-highlight {
-      color: var(--accent-gold);
-  }
-
-  .important-notice-section {
-      padding: 50px 0;
-      background-color: var(--dark-green-bg);
-      /* Main dark green */
-  }
-
-  .important-notice {
-      text-align: center;
-      padding: 25px;
-      background-color: rgba(0, 0, 0, 0.1);
-      /* Slight overlay for depth */
-      border: 1px solid var(--accent-gold);
-      border-radius: 8px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      transition: box-shadow var(--transition-speed-medium) var(--transition-timing), transform var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  .important-notice:hover {
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-      transform: translateY(-2px);
-  }
-
-  .important-notice p {
-      margin: 0.5em 0;
-      font-weight: 400;
-      color: var(--primary-text-color-on-dark);
-  }
-
-  .important-notice strong {
-      color: var(--highlight-gold);
-      font-weight: 700;
-  }
-
-  .important-notice strong i {
-      margin-right: 5px;
-  }
-
-  /* --- Footer (Dark Section) --- */
-  footer {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: var(--section-bg-subtle-darker);
-      color: var(--subtle-text-on-dark);
-      font-size: 0.9rem;
-      border-top: 2px solid var(--accent-gold);
-  }
-
-  footer a {
-      color: var(--accent-gold);
-      text-decoration: none;
-      transition: color var(--transition-speed-medium) var(--transition-timing), text-decoration-color var(--transition-speed-medium) var(--transition-timing);
-  }
-
-  footer a:hover,
-  footer a:focus {
-      text-decoration: underline;
-      color: var(--highlight-gold);
-      text-decoration-color: var(--highlight-gold);
-  }
-
-  /* --- Responsive Adjustments --- */
-  @media (max-width: 768px) {
-      .hero .container {
-          flex-direction: column;
-          text-align: center;
-      }
-
-      .hero-logo {
-          margin-bottom: 20px;
-      }
-
-      .hero-logo img {
-          max-width: 100px;
-      }
-
-      .hero-logo .text-logo {
-          font-size: 2rem;
-      }
-
-      .hero-text-content {
-          text-align: center;
-      }
-
-      .hero h1 {
-          font-size: 2.5rem;
-      }
-
-      .hero .subheadline {
-          font-size: 1.2rem;
-      }
-
-      h2 {
-          font-size: 2rem;
-      }
-
-      /* For dark sections */
-      h2:hover::after {
-          width: 100px;
-      }
-
-      .testimonial-content {
-          font-size: 1.1rem;
-      }
-
-      .testimonial-content::before,
-      .testimonial-content::after {
-          display: none;
-      }
-
-      .cta-button-main {
-          font-size: 1.1rem;
-          padding: 15px 35px;
-      }
-
-      .final-pitch p {
-          font-size: 1.1rem;
-      }
-
-      .final-pitch .emphasis {
-          font-size: 1.5rem;
-      }
-  }
-
-  @media (max-width: 480px) {
-      .hero h1 {
-          font-size: 2rem;
-      }
-
-      .hero .subheadline {
-          font-size: 1rem;
-      }
-
-      h2 {
-          font-size: 1.8rem;
-      }
-
-      /* For dark sections */
-      h2:hover::after {
-          width: 80px;
-      }
-  }
-
-  /* --- Navigation Bar (on the Hero Section) --- */
-header.hero nav {
+main section:nth-child(even) {
+    background-color: var(--section-bg-light-gray);
+}
+
+h2 {
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    color: var(--heading-text-color); /* Dark green for headings */
+    margin-bottom: 0.8em;
     text-align: center;
-    padding-bottom: 20px; /* Space between nav and hero content */
-}
-
-header.hero nav a {
-    color: var(--text-color-on-light); /* Dark text on white background */
-    text-decoration: none;
-    font-family: var(--font-primary);
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin: 0 15px;
-    transition: color var(--transition-speed-medium) var(--transition-timing),
-                border-bottom-color var(--transition-speed-medium) var(--transition-timing);
     position: relative;
-    padding-bottom: 5px; /* For the underline effect */
+    padding-bottom: 0.5em;
 }
 
-header.hero nav a::after {
+h2::after {
     content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
+    display: block;
+    width: 80px;
+    height: 3px;
     background-color: var(--accent-gold); /* Gold underline */
+    margin: 0.3em auto 0;
     transition: width var(--transition-speed-medium) var(--transition-timing);
 }
 
-header.hero nav a:hover::after,
-header.hero nav a:focus::after {
-    width: 100%;
+h2:hover::after {
+    width: 120px;
 }
 
-header.hero nav a:hover,
-header.hero nav a:focus {
-    color: var(--dark-green-bg); /* Dark green on hover/focus */
+/* Paragraphs */
+p {
+    margin-bottom: 1.2em;
+    font-size: 1.05rem;
+    color: var(--primary-text-color); /* Black text */
 }
 
-/* Responsive Navigation Adjustments */
+p.subtle {
+    color: var(--subtle-text-color); /* Dark gray for subtle text */
+}
+
+/* Strong/bold text */
+strong,
+b {
+    font-weight: 600;
+    color: var(--heading-text-color); /* Dark green for emphasis */
+}
+
+/* --- List Styling --- */
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1em;
+    font-size: 1.05rem;
+    color: var(--primary-text-color); /* Black text */
+    transition: color var(--transition-speed-medium) var(--transition-timing);
+}
+
+.feature-list li:hover {
+    color: var(--heading-text-color); /* Dark green on hover */
+}
+
+.feature-list li i {
+    color: var(--accent-gold);
+    margin-right: 12px;
+    font-size: 1.2em;
+    margin-top: 4px;
+    transition: transform var(--transition-speed-fast) var(--transition-timing), 
+                color var(--transition-speed-medium) var(--transition-timing);
+}
+
+.feature-list li:hover i {
+    transform: scale(1.1) translateX(2px);
+    color: var(--highlight-gold);
+}
+
+/* --- Testimonial Section --- */
+.testimonial-section {
+    background-color: var(--section-bg-light-gray);
+    color: var(--primary-text-color); /* Black text */
+    padding: 60px 0;
+}
+
+.testimonial-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    position: relative;
+    padding: 0 20px;
+    color: var(--primary-text-color); /* Black text */
+}
+
+.testimonial-content::before,
+.testimonial-content::after {
+    font-family: var(--font-headings);
+    font-size: 5rem;
+    color: var(--accent-gold);
+    position: absolute;
+    opacity: 0.8;
+    transition: transform var(--transition-speed-medium) var(--transition-timing);
+}
+
+.testimonial-content:hover::before,
+.testimonial-content:hover::after {
+    transform: scale(1.05);
+}
+
+.testimonial-content::before {
+    content: '"';
+    left: -10px;
+    top: -0.5em;
+}
+
+.testimonial-content::after {
+    content: '"';
+    right: -10px;
+    bottom: -0.8em;
+}
+
+/* --- Call to Action Section --- */
+.cta-section {
+    background-color: var(--section-bg-white); /* White background */
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.cta-section h2 {
+    color: var(--heading-text-color); /* Dark green heading */
+}
+
+.cta-section h2::after {
+    background-color: var(--accent-gold); /* Gold underline */
+}
+
+.cta-section .cta-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--highlight-gold);
+    margin: 0.5em 0 1em;
+}
+
+.cta-price .currency {
+    font-size: 1.2rem;
+    vertical-align: super;
+    margin-right: 2px;
+}
+
+.cta-button-main {
+    display: inline-block;
+    background-color: var(--cta-gold-bg);
+    color: var(--section-bg-white); /* White text on gold button */
+    padding: 18px 45px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed-medium) var(--transition-timing),
+        color var(--transition-speed-medium) var(--transition-timing),
+        transform var(--transition-speed-fast) var(--transition-timing),
+        box-shadow var(--transition-speed-medium) var(--transition-timing);
+}
+
+.cta-button-main:hover,
+.cta-button-main:focus {
+    background-color: var(--highlight-gold);
+    color: #000; /* Black text on brighter gold */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+.cta-links-group {
+    margin-top: 20px;
+}
+
+.secondary-action-link {
+    display: block;
+    color: var(--primary-text-color); /* Black text */
+    text-decoration: none;
+    font-weight: 600;
+    margin: 15px auto;
+    font-size: 1.1rem;
+    transition: color var(--transition-speed-medium) var(--transition-timing),
+        letter-spacing var(--transition-speed-medium) var(--transition-timing);
+}
+
+.secondary-action-link i {
+    margin-right: 8px;
+    color: var(--accent-gold);
+    transition: color var(--transition-speed-medium) var(--transition-timing);
+}
+
+.secondary-action-link:hover,
+.secondary-action-link:focus {
+    color: var(--heading-text-color); /* Dark green on hover */
+    letter-spacing: 0.5px;
+}
+
+.secondary-action-link:hover i,
+.secondary-action-link:focus i {
+    color: var(--highlight-gold);
+}
+
+/* --- Final Pitch & Notice --- */
+.final-pitch {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--section-bg-light-gray); /* Light gray background */
+}
+
+.final-pitch p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--primary-text-color); /* Black text */
+}
+
+.final-pitch .emphasis {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--heading-text-color); /* Dark green for emphasis */
+    display: block;
+    margin-top: 0.5em;
+    letter-spacing: 1px;
+}
+
+.emphasis .gold-highlight {
+    color: var(--accent-gold);
+}
+
+.important-notice-section {
+    padding: 50px 0;
+    background-color: var(--section-bg-white); /* White background */
+}
+
+.important-notice {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--section-bg-light-gray); /* Light gray background */
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: box-shadow var(--transition-speed-medium) var(--transition-timing), 
+                transform var(--transition-speed-medium) var(--transition-timing);
+}
+
+.important-notice:hover {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.important-notice p {
+    margin: 0.5em 0;
+    font-weight: 400;
+    color: var(--primary-text-color); /* Black text */
+}
+
+.important-notice strong {
+    color: var(--heading-text-color); /* Dark green for emphasis */
+    font-weight: 700;
+}
+
+.important-notice strong i {
+    margin-right: 5px;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--section-bg-light-gray); /* Light gray background */
+    color: var(--subtle-text-color); /* Dark gray text */
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent-gold);
+}
+
+footer a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color var(--transition-speed-medium) var(--transition-timing), 
+                text-decoration-color var(--transition-speed-medium) var(--transition-timing);
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: underline;
+    color: var(--highlight-gold);
+    text-decoration-color: var(--highlight-gold);
+}
+
+/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-logo {
+        margin-bottom: 20px;
+    }
+
+    .hero-logo img {
+        max-width: 100px;
+    }
+
+    .hero-logo .text-logo {
+        font-size: 2rem;
+    }
+
+    .hero-text-content {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .subheadline {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h2:hover::after {
+        width: 100px;
+    }
+
+    .testimonial-content {
+        font-size: 1.1rem;
+    }
+
+    .testimonial-content::before,
+    .testimonial-content::after {
+        display: none;
+    }
+
+    .cta-button-main {
+        font-size: 1.1rem;
+        padding: 15px 35px;
+    }
+
+    .final-pitch p {
+        font-size: 1.1rem;
+    }
+
+    .final-pitch .emphasis {
+        font-size: 1.5rem;
+    }
+
     header.hero nav {
         padding-bottom: 15px;
     }
@@ -656,12 +535,28 @@ header.hero nav a:focus {
     header.hero nav a {
         font-size: 1rem;
         margin: 0 10px;
-        display: inline-block; /* Allows vertical stacking if needed */
+        display: inline-block;
         margin-bottom: 5px;
     }
 }
 
 @media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .subheadline {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h2:hover::after {
+        width: 80px;
+    }
+
     header.hero nav a {
         margin: 0 8px;
         font-size: 0.9rem;
